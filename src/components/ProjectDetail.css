@@ -1,0 +1,1654 @@
+.project-detail {
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
+  background-color: #ffffff;
+  position: relative;
+  overscroll-behavior: none;
+  overflow-x: hidden;
+}
+
+body.page-project-detail .header {
+  background-color: transparent;
+}
+
+body.page-project-detail .header .logo {
+  color: #000000;
+}
+
+body.page-project-detail .header .logo-square {
+  border-color: #000000;
+}
+
+body.page-project-detail .header .menu-button {
+  color: #000000;
+  border-color: rgba(0, 0, 0, 0.5);
+  background: transparent;
+}
+
+body.page-project-detail .header .menu-button:hover {
+  border-color: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.1);
+}
+
+body.page-project-detail .header .menu-button.menu-open {
+  background: #000000;
+  color: #ffffff;
+}
+
+body.page-project-detail .header .cta-button {
+  color: #000000;
+  border-color: rgba(0, 0, 0, 0.5);
+  background: transparent;
+}
+
+body.page-project-detail .header .cta-button:hover {
+  border-color: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.1);
+}
+
+body.page-project-detail .header .mobile-menu-toggle span {
+  background-color: #000000;
+}
+
+body.page-project-detail .header .dropdown-menu {
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body.page-project-detail .header .dropdown-link {
+  color: #000000;
+}
+
+body.page-project-detail .header .dropdown-link:hover {
+  opacity: 0.9;
+}
+
+body.page-project-detail .header .social-link {
+  color: #000000;
+}
+
+body.page-project-detail .header .dropdown-divider {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+body.page-project-detail .header .dropdown-cta {
+  color: #000000;
+  border-color: rgba(0, 0, 0, 0.3);
+}
+
+body.page-project-detail .header .dropdown-cta:hover {
+  border-color: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.05);
+}
+
+body.page-project-detail .header .mobile-menu-sidebar {
+  background-color: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+body.page-project-detail .header .mobile-menu-content .dropdown-link {
+  color: #000000;
+}
+
+body.page-project-detail .header .mobile-menu-content .social-link {
+  color: #000000;
+}
+
+body.page-project-detail .header .mobile-menu-content .dropdown-divider {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+body.page-project-detail .header .mobile-menu-content .dropdown-cta {
+  color: #000000;
+  border-color: rgba(0, 0, 0, 0.3);
+}
+
+body.page-project-detail .header .mobile-cta-button {
+  color: #000000;
+  border-color: rgba(0, 0, 0, 0.5);
+  background: transparent;
+}
+
+body.page-project-detail .header .mobile-cta-button:hover {
+  border-color: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.project-detail-container {
+  width: 100%;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.project-detail-container::-webkit-scrollbar {
+  display: none;
+}
+
+.project-detail-page {
+  width: 100%;
+  min-height: 100vh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-detail-page-1 {
+  background-color: #ffffff;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  grid-template-rows: auto 1fr;
+  padding: clamp(100px, 12vw, 140px) clamp(1rem, 4vw, 4rem) clamp(2rem, 4vw, 4rem);
+  gap: clamp(1rem, 2vw, 2rem) clamp(1.5rem, 3vw, 3rem);
+  overflow: hidden;
+  height: 100vh;
+  box-sizing: border-box;
+  align-items: start;
+}
+
+.joyce-teknoloji-page-1 {
+  grid-template-columns: 1.2fr 1fr;
+  padding-bottom: clamp(2rem, 4vw, 4rem);
+  gap: clamp(1rem, 2vw, 2rem) clamp(1.5rem, 3vw, 3rem);
+  align-items: stretch;
+}
+
+.project-detail-header {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  gap: clamp(0.5rem, 1vw, 1rem);
+  padding-bottom: clamp(0.75rem, 1.5vw, 1.5rem);
+  margin-left: 0;
+}
+
+.project-detail-client-label {
+  font-family: 'Satoshi-Light', sans-serif;
+  font-size: clamp(0.75rem, 1vw, 0.95rem);
+  font-weight: 300;
+  color: #a0a0a0;
+  font-style: italic;
+  letter-spacing: 0.02em;
+}
+
+.project-detail-title {
+  font-family: 'Satoshi-Light', sans-serif;
+  font-size: clamp(1.5rem, 6vw, 5.5rem);
+  font-weight: 300;
+  color: #000000;
+  margin: 0;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.project-detail-left {
+  display: flex;
+  align-items: flex-start;
+}
+
+.joyce-teknoloji-page-1 .project-detail-left {
+  align-items: stretch;
+  overflow: hidden;
+  display: flex;
+}
+
+.project-detail-image-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-detail-main-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.joyce-teknoloji-page-1 .project-detail-main-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.joyce-teknoloji-page-1 .project-detail-image-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.joyce-teknoloji-page-1 .project-detail-left {
+  align-items: flex-start;
+  overflow: hidden;
+  max-height: calc(100vh - clamp(200px, 25vw, 250px));
+}
+
+.project-detail-image-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: -1;
+}
+
+.project-detail-image-placeholder span {
+  font-family: 'Satoshi-Regular', sans-serif;
+  font-size: clamp(0.8rem, 1.2vw, 1.2rem);
+  color: #999999;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.project-detail-image-wrapper.no-image .project-detail-image-placeholder {
+  z-index: 1;
+}
+
+.project-detail-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: clamp(0, 2vw, 2rem);
+  overflow: hidden;
+  height: 100%;
+}
+
+.joyce-teknoloji-page-1 .project-detail-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: clamp(0, 2vw, 2rem);
+  overflow: hidden;
+  height: 100%;
+}
+
+.project-detail-description-section {
+  flex: 1;
+  min-height: 0;
+}
+
+.joyce-teknoloji-page-1 .project-detail-description-section {
+  flex: 1;
+  min-height: 0;
+}
+
+.project-detail-description {
+  font-family: 'Satoshi-Regular', sans-serif;
+  font-size: clamp(0.75rem, 1vw, 1rem);
+  font-weight: 400;
+  color: #333333;
+  line-height: 1.8;
+  white-space: pre-line;
+  margin: 0;
+}
+
+.project-detail-section-title {
+  font-family: 'Satoshi-Medium', sans-serif;
+  font-size: clamp(0.9rem, 1.1vw, 1.1rem);
+  font-weight: 500;
+  color: #000000;
+  margin-bottom: clamp(0.65rem, 1vw, 1rem);
+  letter-spacing: 0.01em;
+}
+
+.project-detail-meta-section {
+  margin-top: auto;
+  padding-top: clamp(1.25rem, 2vw, 2rem);
+  flex-shrink: 0;
+}
+
+.joyce-teknoloji-page-1 .project-detail-meta-section {
+  margin-top: auto;
+  padding-top: clamp(1.25rem, 2vw, 2rem);
+  flex-shrink: 0;
+}
+
+.project-detail-meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.project-detail-meta-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.project-detail-meta-copyright,
+.project-detail-meta-place {
+  font-family: 'Satoshi-Regular', sans-serif;
+  font-size: clamp(0.75rem, 0.9vw, 0.9rem);
+  color: #999999;
+}
+
+.project-detail-meta-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.3rem;
+}
+
+.project-detail-link {
+  font-family: 'Satoshi-Regular', sans-serif;
+  font-size: clamp(0.75rem, 0.9vw, 0.9rem);
+  color: #000000;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: opacity 0.3s ease;
+}
+
+.project-detail-link:hover {
+  opacity: 0.6;
+}
+
+.project-detail-link-disabled {
+  font-family: 'Satoshi-Regular', sans-serif;
+  font-size: clamp(0.75rem, 0.9vw, 0.9rem);
+  color: rgba(0, 0, 0, 0.4);
+  text-decoration: none;
+  cursor: default;
+}
+
+.project-detail-page-2 {
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1rem, 3vw, 3rem);
+}
+
+.project-detail-showcase {
+  width: 100%;
+  max-width: 1400px;
+  height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.75rem, 1.5vw, 1.5rem);
+  position: relative;
+}
+
+.showcase-side {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.6rem, 1vw, 1rem);
+  max-width: 320px;
+  height: 100%;
+  justify-content: center;
+}
+
+.showcase-item {
+  background: #f5f5f5;
+  border: 1px solid #e0e0e0;
+  width: 100%;
+  height: clamp(80px, 18vh, 180px);
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.showcase-item span {
+  font-family: 'Satoshi-Regular', sans-serif;
+  font-size: clamp(0.65rem, 0.8vw, 0.8rem);
+  color: #999999;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.showcase-center {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.showcase-device-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.simple-mockup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #1a1a1a;
+  border-radius: 20px;
+  padding: 8px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+
+.simple-mockup-screen {
+  background: #f8f8f8;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.simple-mockup-screen span {
+  font-family: 'Satoshi-Regular', sans-serif;
+  font-size: clamp(0.6rem, 0.8vw, 0.75rem);
+  color: #b0b0b0;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.simple-mockup-phone {
+  width: clamp(140px, 25vw, 200px);
+  height: clamp(280px, 50vw, 400px);
+  max-width: 200px;
+  max-height: 400px;
+}
+
+.simple-mockup-tablet {
+  width: clamp(200px, 35vw, 320px);
+  height: clamp(280px, 45vw, 420px);
+  max-width: 320px;
+  max-height: 420px;
+}
+
+.mobile-devices-grid {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1rem, 3vw, 2rem);
+  width: 100%;
+  height: 100%;
+  padding: clamp(1rem, 3vw, 2rem);
+  box-sizing: border-box;
+}
+
+.mobile-showcase-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto auto;
+  gap: clamp(0.5rem, 1.5vw, 1rem);
+  width: 100%;
+  padding: clamp(0.5rem, 2vw, 1rem);
+  box-sizing: border-box;
+}
+
+.mobile-showcase-item {
+  background: #f5f5f5;
+  border: 1px solid #e0e0e0;
+  height: clamp(80px, 15vh, 120px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-showcase-item span {
+  font-family: 'Satoshi-Regular', sans-serif;
+  font-size: clamp(0.6rem, 2vw, 0.75rem);
+  color: #999999;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.mobile-showcase-device {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(0.5rem, 2vw, 1rem) 0;
+}
+
+.valens-page-2 {
+  background-color: #ffffff;
+  padding: clamp(90px, 12vw, 130px) clamp(0.5rem, 1.5vw, 1.5rem) clamp(0.5rem, 1.5vw, 1.5rem);
+}
+
+.valens-photo-grid {
+  width: 100%;
+  height: calc(100vh - clamp(100px, 15vw, 150px));
+  display: flex;
+  gap: clamp(0.3rem, 0.75vw, 0.75rem);
+  min-height: 400px;
+  box-sizing: border-box;
+}
+
+.valens-grid-left {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.3rem, 0.75vw, 0.75rem);
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.valens-grid-top {
+  display: flex;
+  gap: clamp(0.3rem, 0.75vw, 0.75rem);
+  flex: 1;
+  min-height: 0;
+  box-sizing: border-box;
+}
+
+.valens-grid-right {
+  flex: 1.2;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.valens-photo-item {
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.valens-photo-item span {
+  font-family: 'Satoshi-Regular', sans-serif;
+  font-size: clamp(0.6rem, 0.85vw, 0.85rem);
+  color: #999999;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.valens-photo-small {
+  flex: 1;
+  height: 100%;
+  min-width: 0;
+  width: 100%;
+}
+
+.valens-photo-wide {
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+  height: 100%;
+}
+
+.valens-photo-tall {
+  height: 100%;
+  width: 100%;
+  min-height: 0;
+}
+
+.valens-page-3 {
+  background-color: #ffffff;
+  padding: clamp(80px, 10vw, 100px) 0 0;
+  overflow: hidden;
+}
+
+.valens-devices-showcase {
+  width: 100%;
+  height: calc(100vh - clamp(80px, 10vw, 100px));
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 0;
+  padding: 0 2% 0;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.valens-device-wrapper {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.valens-macbook {
+  flex: 0 0 auto;
+  margin-right: -120px;
+  z-index: 1;
+}
+
+.valens-ipad {
+  flex: 0 0 auto;
+  margin-right: -100px;
+  z-index: 2;
+  transform: translateY(140px) !important;
+}
+
+.valens-iphone {
+  flex: 0 0 auto;
+  z-index: 3;
+  transform: translateY(150px) !important;
+}
+
+.device-screen-content {
+  width: 100%;
+  height: 100%;
+  background: #f8f8f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.device-screen-content span {
+  font-family: 'Satoshi-Regular', sans-serif;
+  font-size: clamp(0.5rem, 0.7vw, 0.7rem);
+  color: #b0b0b0;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.joyce-page-2 {
+  background-color: #ffffff;
+  padding: clamp(90px, 12vw, 130px) clamp(1rem, 2vw, 2rem) clamp(1rem, 2vw, 2rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.joyce-page-2-grid {
+  width: 100%;
+  height: calc(100vh - clamp(90px, 12vw, 130px) - clamp(2rem, 4vw, 4rem));
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: clamp(0.5rem, 1vw, 1rem);
+  min-height: 500px;
+  box-sizing: border-box;
+}
+
+.joyce-page-2-left {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.5rem, 1vw, 1rem);
+  height: 100%;
+}
+
+.joyce-page-2-top,
+.joyce-page-2-bottom {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.joyce-page-2-center {
+  height: 100%;
+  overflow: hidden;
+}
+
+.joyce-page-2-right {
+  height: 100%;
+  overflow: hidden;
+}
+
+.joyce-page-2-photo {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.joyce-page-2-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.joyce-teknoloji-page-2 {
+  background-color: #ffffff;
+  padding: clamp(90px, 12vw, 130px) clamp(1rem, 2vw, 2rem) clamp(1rem, 2vw, 2rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.joyce-teknoloji-page-2-grid {
+  width: 100%;
+  height: calc(100vh - clamp(90px, 12vw, 130px) - clamp(2rem, 4vw, 4rem));
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: clamp(0.5rem, 1vw, 1rem);
+  min-height: 500px;
+  box-sizing: border-box;
+}
+
+.joyce-teknoloji-page-2-left {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.5rem, 1vw, 1rem);
+  height: 100%;
+}
+
+.joyce-teknoloji-page-2-top,
+.joyce-teknoloji-page-2-bottom {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.joyce-teknoloji-page-2-center {
+  height: 100%;
+  overflow: hidden;
+}
+
+.joyce-teknoloji-page-2-right {
+  height: 100%;
+  overflow: hidden;
+}
+
+.joyce-teknoloji-page-2-photo {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.joyce-teknoloji-page-2-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.joyce-page-3 {
+  background-color: #ffffff;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.joyce-page-3-photo {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.joyce-page-3-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.joyce-page-4 {
+  background-color: #ffffff;
+  padding: clamp(80px, 10vw, 100px) 0 0;
+  overflow: hidden;
+}
+
+.beaulife-page-2 {
+  background-color: #ffffff;
+  padding: clamp(90px, 12vw, 130px) clamp(0.5rem, 1.5vw, 1.5rem) clamp(0.5rem, 1.5vw, 1.5rem);
+}
+
+.beaulife-grid-layout {
+  width: 100%;
+  height: calc(100vh - clamp(100px, 15vw, 150px));
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(0.5rem, 1vw, 1rem);
+  min-height: 400px;
+  box-sizing: border-box;
+}
+
+.beaulife-photo-item {
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.beaulife-photo-item span {
+  font-family: 'Satoshi-Regular', sans-serif;
+  font-size: clamp(0.6rem, 0.85vw, 0.85rem);
+  color: #999999;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.yume-page-2 {
+  background-color: #ffffff;
+  padding: clamp(90px, 12vw, 130px) clamp(0.5rem, 1.5vw, 1.5rem) clamp(0.5rem, 1.5vw, 1.5rem);
+}
+
+.yume-grid-layout {
+  width: 100%;
+  height: calc(100vh - clamp(100px, 15vw, 150px));
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(0.5rem, 1vw, 1rem);
+  min-height: 400px;
+  box-sizing: border-box;
+}
+
+.yume-panel {
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.yume-panel span {
+  font-family: 'Satoshi-Regular', sans-serif;
+  font-size: clamp(0.6rem, 0.85vw, 0.85rem);
+  color: #999999;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.allshape-page-4 {
+  background-color: #ffffff;
+  padding: clamp(90px, 12vw, 130px) clamp(0.5rem, 1.5vw, 1.5rem) clamp(0.5rem, 1.5vw, 1.5rem);
+}
+
+.allshape-grid-6 {
+  width: 100%;
+  height: calc(100vh - clamp(100px, 15vw, 150px));
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: clamp(0.5rem, 1vw, 1rem);
+  min-height: 400px;
+  box-sizing: border-box;
+}
+
+.allshape-panel {
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.allshape-panel-merged {
+  grid-row: span 2;
+}
+
+.allshape-panel span {
+  font-family: 'Satoshi-Regular', sans-serif;
+  font-size: clamp(0.6rem, 0.85vw, 0.85rem);
+  color: #999999;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.allshape-page-5 {
+  background-color: #ffffff;
+  padding: clamp(80px, 10vw, 100px) 0 0;
+  overflow: hidden;
+}
+
+.allshape-devices-showcase {
+  width: 100%;
+  height: calc(100vh - clamp(80px, 10vw, 100px));
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 0;
+  padding: 0 5% 0;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.allshape-device-wrapper {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.allshape-macbook {
+  flex: 0 0 auto;
+  margin-right: -120px;
+  z-index: 1;
+}
+
+.allshape-iphone {
+  flex: 0 0 auto;
+  z-index: 2;
+  transform: translateY(150px) !important;
+}
+
+@media (max-width: 1024px) {
+  .project-detail-page-1 {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    padding: 110px 1.5rem 5rem;
+    gap: 1.25rem;
+    padding-bottom: calc(5rem + env(safe-area-inset-bottom));
+  }
+
+  .project-detail-header {
+    grid-column: 1;
+  }
+
+  .project-detail-left {
+    max-height: 40vh;
+  }
+
+  .project-detail-image-wrapper {
+    max-height: 40vh;
+  }
+
+  .project-detail-right {
+    padding-left: 0;
+    max-height: none;
+  }
+
+  .project-detail-showcase {
+    flex-direction: column;
+    height: auto;
+    gap: 1.25rem;
+    padding: 1rem;
+  }
+
+  .showcase-side {
+    flex-direction: row;
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+  }
+
+  .showcase-item {
+    flex: 1;
+    height: 100px;
+  }
+
+  .showcase-center {
+    order: -1;
+  }
+
+  .valens-photo-grid {
+    flex-direction: column;
+    height: calc(100vh - 130px);
+    min-height: 450px;
+  }
+
+  .valens-grid-left {
+    flex: none;
+  }
+
+  .valens-grid-top {
+    height: 25%;
+    min-height: 100px;
+  }
+
+  .valens-photo-wide {
+    height: 25%;
+    min-height: 100px;
+  }
+
+  .valens-grid-right {
+    flex: none;
+    height: 50%;
+    min-height: 150px;
+  }
+
+  .valens-devices-showcase,
+  .allshape-devices-showcase {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+  }
+
+  .mobile-devices-grid {
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+
+  .beaulife-grid-layout {
+    grid-template-columns: 1fr 1fr 1fr;
+    height: calc(100vh - 130px);
+    min-height: 400px;
+  }
+
+  .yume-grid-layout {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    height: calc(100vh - 130px);
+    min-height: 400px;
+  }
+
+  .allshape-grid-6 {
+    grid-template-columns: 1fr 1fr 1fr;
+    height: calc(100vh - 130px);
+    min-height: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .project-detail-page-1 {
+    padding: 100px 1rem 5rem;
+    gap: 1rem;
+    padding-bottom: calc(5rem + env(safe-area-inset-bottom));
+  }
+
+  .project-detail-header {
+    padding-bottom: 0.75rem;
+  }
+
+  .project-detail-left {
+    max-height: 35vh;
+  }
+
+  .project-detail-image-wrapper {
+    max-height: 35vh;
+  }
+
+  .project-detail-description {
+    line-height: 1.65;
+  }
+
+  .project-detail-meta-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .project-detail-meta-right {
+    align-items: flex-start;
+  }
+
+  .project-detail-page-2 {
+    padding: 1rem;
+  }
+
+  .project-detail-showcase {
+    height: auto;
+    min-height: calc(100vh - 120px);
+  }
+
+  .mobile-showcase-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .mobile-showcase-item {
+    height: 100px;
+  }
+
+  .valens-page-2,
+  .joyce-page-2,
+  .joyce-teknoloji-page-2 {
+    padding: 100px 0.75rem 0.75rem;
+    height: 100vh;
+  }
+
+  .joyce-page-2-grid,
+  .joyce-teknoloji-page-2-grid {
+    height: calc(100vh - 100px - 1.5rem);
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 0.75rem;
+    min-height: 450px;
+  }
+
+  .joyce-page-2-left,
+  .joyce-teknoloji-page-2-left {
+    flex-direction: row;
+    gap: 0.75rem;
+    height: auto;
+  }
+
+  .joyce-page-2-top,
+  .joyce-page-2-bottom,
+  .joyce-teknoloji-page-2-top,
+  .joyce-teknoloji-page-2-bottom {
+    flex: 1;
+    height: 250px;
+  }
+
+  .joyce-page-2-center,
+  .joyce-teknoloji-page-2-center {
+    height: auto;
+  }
+
+  .joyce-page-2-right,
+  .joyce-teknoloji-page-2-right {
+    height: 250px;
+  }
+
+  .joyce-page-3 {
+    padding: 0;
+    height: 100vh;
+  }
+
+  .joyce-page-3-photo {
+    height: 100vh;
+  }
+
+  .valens-photo-grid {
+    height: calc(100vh - 120px);
+    min-height: 400px;
+    gap: 0.4rem;
+  }
+
+  .valens-grid-left {
+    gap: 0.4rem;
+  }
+
+  .valens-grid-top {
+    gap: 0.4rem;
+  }
+
+  .valens-page-3,
+  .joyce-page-4,
+  .allshape-page-5 {
+    padding: 90px 0.5rem 0.5rem;
+  }
+
+  .valens-devices-showcase,
+  .allshape-devices-showcase {
+    height: calc(100vh - 100px);
+    min-height: 400px;
+    padding: 0.75rem;
+  }
+
+  .mobile-devices-grid {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .simple-mockup-phone {
+    width: 160px;
+    height: 320px;
+  }
+
+  .simple-mockup-tablet {
+    width: 220px;
+    height: 300px;
+  }
+
+  .beaulife-page-2 {
+    padding: 100px 0.75rem 0.75rem;
+  }
+
+  .beaulife-grid-layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    height: calc(100vh - 120px);
+    min-height: 400px;
+  }
+
+  .yume-page-2 {
+    padding: 100px 0.75rem 0.75rem;
+  }
+
+  .yume-grid-layout {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    height: calc(100vh - 120px);
+    min-height: 400px;
+  }
+
+  .allshape-page-4 {
+    padding: 100px 0.75rem 0.75rem;
+  }
+
+  .allshape-grid-6 {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    height: calc(100vh - 120px);
+    min-height: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-detail-page-1 {
+    padding: 90px 0.75rem 4rem;
+    gap: 0.85rem;
+    padding-bottom: calc(4rem + env(safe-area-inset-bottom));
+  }
+
+  .project-detail-left {
+    max-height: 30vh;
+  }
+
+  .project-detail-image-wrapper {
+    max-height: 30vh;
+  }
+
+  .mobile-showcase-grid {
+    gap: 0.5rem;
+  }
+
+  .mobile-showcase-item {
+    height: 80px;
+  }
+
+  .valens-page-2,
+  .joyce-page-2,
+  .joyce-teknoloji-page-2 {
+    padding: 90px 0.5rem 0.5rem;
+    height: 100vh;
+  }
+
+  .joyce-page-2-grid,
+  .joyce-teknoloji-page-2-grid {
+    height: calc(100vh - 90px - 1rem);
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 0.5rem;
+    min-height: 400px;
+  }
+
+  .joyce-page-2-left,
+  .joyce-teknoloji-page-2-left {
+    flex-direction: row;
+    gap: 0.5rem;
+    height: auto;
+  }
+
+  .joyce-page-2-top,
+  .joyce-page-2-bottom,
+  .joyce-teknoloji-page-2-top,
+  .joyce-teknoloji-page-2-bottom {
+    flex: 1;
+    height: 200px;
+  }
+
+
+  .joyce-page-2-right,
+  .joyce-teknoloji-page-2-right {
+    height: 200px;
+  }
+
+  .joyce-page-3 {
+    padding: 0;
+    height: 100vh;
+  }
+
+  .joyce-page-3-photo {
+    height: 100vh;
+  }
+
+  .valens-photo-grid {
+    height: calc(100vh - 110px);
+    min-height: 350px;
+    gap: 0.35rem;
+  }
+
+  .valens-grid-top {
+    height: 22%;
+    min-height: 80px;
+    gap: 0.35rem;
+  }
+
+  .valens-photo-wide {
+    height: 25%;
+    min-height: 80px;
+  }
+
+  .valens-grid-right {
+    height: 53%;
+    min-height: 120px;
+  }
+
+  .valens-page-3,
+  .joyce-page-4,
+  .allshape-page-5 {
+    padding: 85px 0.25rem 0.25rem;
+  }
+
+  .valens-devices-showcase,
+  .allshape-devices-showcase {
+    height: calc(100vh - 95px);
+    min-height: 350px;
+    padding: 0.5rem;
+  }
+
+  .simple-mockup-phone {
+    width: 140px;
+    height: 280px;
+  }
+
+  .beaulife-page-2 {
+    padding: 90px 0.5rem 0.5rem;
+  }
+
+  .beaulife-grid-layout {
+    height: calc(100vh - 110px);
+    min-height: 350px;
+  }
+
+  .yume-page-2 {
+    padding: 90px 0.5rem 0.5rem;
+  }
+
+  .yume-grid-layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    height: calc(100vh - 110px);
+    min-height: 350px;
+  }
+
+  .allshape-page-4 {
+    padding: 90px 0.5rem 0.5rem;
+  }
+
+  .allshape-grid-6 {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, 1fr);
+    height: calc(100vh - 110px);
+    min-height: 350px;
+  }
+
+  .allshape-panel-merged {
+    grid-row: span 1;
+  }
+}
+
+@media (max-width: 375px) {
+  .project-detail-page-1 {
+    padding: 85px 0.5rem 0.5rem;
+    gap: 0.75rem;
+  }
+
+  .project-detail-left {
+    max-height: 28vh;
+  }
+
+  .project-detail-image-wrapper {
+    max-height: 28vh;
+  }
+
+  .mobile-showcase-item {
+    height: 70px;
+  }
+
+  .valens-page-2,
+  .joyce-page-2,
+  .joyce-teknoloji-page-2 {
+    padding: 85px 0.4rem 0.4rem;
+    height: 100vh;
+  }
+
+  .joyce-page-2-grid,
+  .joyce-teknoloji-page-2-grid {
+    height: calc(100vh - 85px - 0.8rem);
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 0.4rem;
+    min-height: 350px;
+  }
+
+  .joyce-page-2-left,
+  .joyce-teknoloji-page-2-left {
+    flex-direction: row;
+    gap: 0.4rem;
+    height: auto;
+  }
+
+  .joyce-page-2-top,
+  .joyce-page-2-bottom,
+  .joyce-teknoloji-page-2-top,
+  .joyce-teknoloji-page-2-bottom {
+    flex: 1;
+    height: 180px;
+  }
+
+  .joyce-page-2-right,
+  .joyce-teknoloji-page-2-right {
+    height: 180px;
+  }
+
+  .joyce-page-3 {
+    padding: 0;
+    height: 100vh;
+  }
+
+  .joyce-page-3-photo {
+    height: 100vh;
+  }
+
+  .valens-photo-grid {
+    height: calc(100vh - 100px);
+    min-height: 320px;
+    gap: 0.3rem;
+  }
+
+  .valens-page-3,
+  .joyce-page-4,
+  .allshape-page-5 {
+    padding: 80px 0.2rem 0.2rem;
+  }
+
+  .joyce-page-3 {
+    padding: 0;
+    height: 100vh;
+  }
+
+  .joyce-page-3-photo {
+    height: 100vh;
+  }
+
+  .valens-devices-showcase,
+  .allshape-devices-showcase {
+    height: calc(100vh - 90px);
+    min-height: 320px;
+  }
+
+  .simple-mockup-phone {
+    width: 130px;
+    height: 260px;
+  }
+
+  .beaulife-page-2 {
+    padding: 85px 0.4rem 0.4rem;
+  }
+
+  .beaulife-grid-layout {
+    height: calc(100vh - 100px);
+    min-height: 320px;
+  }
+
+  .yume-page-2 {
+    padding: 85px 0.4rem 0.4rem;
+  }
+
+  .yume-grid-layout {
+    height: calc(100vh - 100px);
+    min-height: 320px;
+  }
+
+  .allshape-page-4 {
+    padding: 85px 0.4rem 0.4rem;
+  }
+
+  .allshape-grid-6 {
+    height: calc(100vh - 100px);
+    min-height: 320px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .project-detail-page-1 {
+    padding: 140px 5rem 4rem;
+    gap: 2.5rem 4rem;
+  }
+
+  .project-detail-image-wrapper {
+    max-height: 70vh;
+  }
+
+  .valens-page-2,
+  .joyce-page-2,
+  .joyce-teknoloji-page-2 {
+    padding: 140px 2rem 2rem;
+    height: 100vh;
+  }
+
+  .joyce-page-2-grid,
+  .joyce-teknoloji-page-2-grid {
+    height: calc(100vh - 140px - 4rem);
+    min-height: 600px;
+    gap: 1rem;
+  }
+
+  .joyce-page-3 {
+    padding: 0;
+    height: 100vh;
+  }
+
+  .joyce-page-3-photo {
+    height: 100vh;
+  }
+
+  .valens-photo-grid {
+    height: calc(100vh - 160px);
+    min-height: 600px;
+    gap: 1rem;
+  }
+
+  .valens-grid-left {
+    gap: 1rem;
+  }
+
+  .valens-grid-top {
+    gap: 1rem;
+  }
+
+  .valens-page-3,
+  .joyce-page-4,
+  .allshape-page-5 {
+    padding: 100px 0 0;
+  }
+
+  .valens-devices-showcase {
+    height: calc(100vh - 100px);
+    padding: 0 6%;
+  }
+
+  .valens-macbook {
+    margin-right: -130px;
+  }
+
+  .valens-ipad {
+    margin-right: -110px;
+  }
+
+  .beaulife-page-2 {
+    padding: 140px 2rem 2rem;
+  }
+
+  .beaulife-grid-layout {
+    height: calc(100vh - 160px);
+    min-height: 600px;
+  }
+
+  .yume-page-2 {
+    padding: 140px 2rem 2rem;
+  }
+
+  .yume-grid-layout {
+    height: calc(100vh - 160px);
+    min-height: 600px;
+  }
+
+  .allshape-page-4 {
+    padding: 140px 2rem 2rem;
+  }
+
+  .allshape-grid-6 {
+    height: calc(100vh - 160px);
+    min-height: 600px;
+  }
+
+  .allshape-devices-showcase {
+    height: calc(100vh - 100px);
+    padding: 0 5%;
+  }
+}
+
+@media (min-width: 1920px) {
+  .project-detail-page-1 {
+    padding: 150px 6rem 5rem;
+    gap: 3rem 5rem;
+  }
+
+  .valens-photo-grid,
+  .beaulife-grid-layout,
+  .yume-grid-layout,
+  .allshape-grid-6 {
+    min-height: 700px;
+    gap: 1.25rem;
+  }
+}
+
+.project-detail-services-section {
+  margin-bottom: 3rem;
+}
+
+.project-detail-services-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.project-detail-services-list li {
+  font-family: 'Satoshi-Regular', sans-serif;
+  font-size: clamp(0.8rem, 0.9vw, 0.9rem);
+  color: #a0a0a0;
+  line-height: 1.6;
+}
+
+.project-detail-services-list li.highlighted {
+  color: #000000;
+  font-weight: 500;
+}

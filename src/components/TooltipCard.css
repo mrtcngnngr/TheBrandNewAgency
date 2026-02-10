@@ -1,0 +1,119 @@
+.tooltip-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  max-width: 320px;
+  min-width: 250px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  font-family: 'Satoshi-Regular', 'Satoshi-Variable', sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #ffffff;
+  word-wrap: break-word;
+}
+
+.tooltip-card p {
+  margin: 0 0 0.75rem 0;
+}
+
+.tooltip-card p:last-child {
+  margin-bottom: 0;
+}
+
+.tooltip-card strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.tooltip-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0;
+  font-family: 'Satoshi-Regular', 'Satoshi-Variable', sans-serif;
+  z-index: 1;
+}
+
+.tooltip-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.tooltip-close:active {
+  transform: scale(0.95);
+}
+
+@media (max-width: 768px) {
+  .tooltip-card {
+    max-width: calc(100vw - 3rem);
+    min-width: auto;
+    padding: 1rem 1.25rem 1rem 1.25rem;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    border-radius: 10px;
+    position: relative;
+  }
+
+  .tooltip-card p {
+    margin: 0 0 0.5rem 0;
+    padding-right: 1.5rem;
+  }
+
+  .tooltip-card p:last-child {
+    margin-bottom: 0;
+  }
+
+  .tooltip-close {
+    display: flex;
+  }
+}
+
+@media (max-width: 480px) {
+  .tooltip-card {
+    max-width: calc(100vw - 2rem);
+    min-width: auto;
+    padding: 1rem 1rem 1rem 1rem;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    border-radius: 10px;
+  }
+
+  .tooltip-card p {
+    margin: 0 0 0.5rem 0;
+    padding-right: 1.5rem;
+  }
+
+  .tooltip-card p:last-child {
+    margin-bottom: 0;
+  }
+
+  .tooltip-close {
+    top: 0.4rem;
+    right: 0.4rem;
+    width: 26px;
+    height: 26px;
+    font-size: 1.3rem;
+  }
+}
+
