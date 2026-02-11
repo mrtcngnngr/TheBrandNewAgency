@@ -1,21 +1,11 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import './AboutPage.css';
 
 const AboutPage = () => {
-  const particles = useMemo(() => {
-    return Array.from({ length: 20 }, (_, i) => ({
-      id: i,
-      left: Math.random() * 100,
-      delay: Math.random() * 5,
-      duration: 15 + Math.random() * 10
-    }));
-  }, []);
-
   return (
     <section className="about-page" id="about-us">
-      <div className="aurora-background-about"></div>
-      
-      <div className="noise-overlay"></div>
+      <div className="about-page-bg" aria-hidden="true"></div>
+      <div className="noise-overlay" aria-hidden="true"></div>
       
       <div className="about-page-container">
         <div className="about-page-left">

@@ -9,7 +9,9 @@
 }
 
 body.page-project-detail .header {
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(14px) saturate(120%);
+  -webkit-backdrop-filter: blur(14px) saturate(120%);
 }
 
 body.page-project-detail .header .logo {
@@ -527,6 +529,18 @@ body.page-project-detail .header .mobile-cta-button:hover {
   padding: clamp(0.5rem, 2vw, 1rem) 0;
 }
 
+.valens-page-1 {
+  grid-template-columns: 1.2fr 1fr;
+  padding-bottom: clamp(2rem, 4vw, 4rem);
+  gap: clamp(1rem, 2vw, 2rem) clamp(1.5rem, 3vw, 3rem);
+  align-items: stretch;
+}
+
+.valens-page-1 .project-detail-description {
+  font-size: clamp(0.88rem, 1vw, 1rem);
+  line-height: 1.6;
+}
+
 .valens-page-2 {
   background-color: #ffffff;
   padding: clamp(90px, 12vw, 130px) clamp(0.5rem, 1.5vw, 1.5rem) clamp(0.5rem, 1.5vw, 1.5rem);
@@ -582,6 +596,119 @@ body.page-project-detail .header .mobile-cta-button:hover {
   letter-spacing: 0.1em;
 }
 
+.yokote-page-1 {
+  grid-template-columns: 1.2fr 1fr;
+  padding-bottom: clamp(2rem, 4vw, 4rem);
+  gap: clamp(1rem, 2vw, 2rem) clamp(1.5rem, 3vw, 3rem);
+  align-items: stretch;
+}
+
+.yokote-page-1 .project-detail-description {
+  font-size: clamp(0.88rem, 1vw, 1rem);
+  line-height: 1.6;
+}
+
+.mithras-page-1 {
+  grid-template-columns: 1.2fr 1fr;
+  padding-bottom: clamp(2rem, 4vw, 4rem);
+  gap: clamp(1rem, 2vw, 2rem) clamp(1.5rem, 3vw, 3rem);
+  align-items: stretch;
+}
+
+.reverie-page-1 {
+  grid-template-columns: 1.2fr 1fr;
+  padding-bottom: clamp(2rem, 4vw, 4rem);
+  gap: clamp(1rem, 2vw, 2rem) clamp(1.5rem, 3vw, 3rem);
+  align-items: stretch;
+}
+
+.reverie-page-1 .project-detail-description {
+  font-size: clamp(0.86rem, 0.95vw, 0.98rem);
+  line-height: 1.58;
+}
+
+.yokote-page-2 {
+  background-color: #ffffff;
+  padding: clamp(90px, 12vw, 130px) 0 0;
+}
+
+.yokote-page-2-photo {
+  width: 100%;
+  height: calc(100vh - clamp(100px, 15vw, 150px));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.yokote-page-2-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.mithras-page-2 {
+  background-color: #ffffff;
+  padding: clamp(90px, 12vw, 130px) 0 0;
+}
+
+.mithras-page-2-photo {
+  width: 100%;
+  height: calc(100vh - clamp(100px, 15vw, 150px));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+.mithras-page-2-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.reverie-page-2 {
+  background-color: #f2f2f2;
+  padding: clamp(90px, 12vw, 130px) clamp(0.5rem, 1.5vw, 1.5rem) clamp(0.5rem, 1.5vw, 1.5rem);
+}
+
+.reverie-page-2-grid {
+  width: 100%;
+  height: calc(100vh - clamp(100px, 15vw, 150px));
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(0.5rem, 1vw, 1rem);
+  min-height: 400px;
+  box-sizing: border-box;
+}
+
+.reverie-page-2-item {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.reverie-page-2-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.valens-photo-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
 .valens-photo-small {
   flex: 1;
   height: 100%;
@@ -618,6 +745,14 @@ body.page-project-detail .header .mobile-cta-button:hover {
   padding: 0 2% 0;
   box-sizing: border-box;
   position: relative;
+}
+
+.valens-devices-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+  display: block;
 }
 
 .valens-device-wrapper {
@@ -666,22 +801,20 @@ body.page-project-detail .header .mobile-cta-button:hover {
 
 .joyce-page-2 {
   background-color: #ffffff;
-  padding: clamp(90px, 12vw, 130px) clamp(1rem, 2vw, 2rem) clamp(1rem, 2vw, 2rem);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  overflow: hidden;
+  padding: clamp(90px, 12vw, 130px) clamp(0.5rem, 1.5vw, 1.5rem) clamp(0.5rem, 1.5vw, 1.5rem);
 }
 
 .joyce-page-2-grid {
   width: 100%;
-  height: calc(100vh - clamp(90px, 12vw, 130px) - clamp(2rem, 4vw, 4rem));
+  height: calc(100vh - clamp(100px, 15vw, 150px));
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: clamp(0.5rem, 1vw, 1rem);
-  min-height: 500px;
+  column-gap: 0;
+  row-gap: clamp(0.5rem, 1vw, 1rem);
+  min-height: 400px;
   box-sizing: border-box;
+  overflow: hidden;
+  align-items: stretch;
 }
 
 .joyce-page-2-left {
@@ -689,6 +822,7 @@ body.page-project-detail .header .mobile-cta-button:hover {
   flex-direction: column;
   gap: clamp(0.5rem, 1vw, 1rem);
   height: 100%;
+  min-width: 0;
 }
 
 .joyce-page-2-top,
@@ -701,11 +835,41 @@ body.page-project-detail .header .mobile-cta-button:hover {
 .joyce-page-2-center {
   height: 100%;
   overflow: hidden;
+  min-width: 0;
+}
+
+.joyce-page-2-center .joyce-page-2-photo {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.joyce-page-2-center .joyce-page-2-photo .joyce-page-2-center-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.joyce-page-2-center .joyce-page-2-photo .joyce-page-2-center-main {
+  position: relative;
+  z-index: 1;
+  object-fit: contain;
+  object-position: center;
+  width: 100%;
+  height: 100%;
 }
 
 .joyce-page-2-right {
   height: 100%;
   overflow: hidden;
+  min-width: 0;
 }
 
 .joyce-page-2-photo {
@@ -721,6 +885,15 @@ body.page-project-detail .header .mobile-cta-button:hover {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
+}
+
+.joyce-teknoloji-center-item {
+  background: #ffffff;
+}
+
+.beaulife-photo-item.joyce-teknoloji-center-item img {
+  object-fit: contain;
   object-position: center;
 }
 
@@ -784,6 +957,98 @@ body.page-project-detail .header .mobile-cta-button:hover {
   object-position: center;
 }
 
+/* TozzBike & 90 — page 1: same as Joyce (grid 1.2fr 1fr), 
+   page 2: üstte 3 sütun, altta tek geniş lastik fotoğrafı */
+.tozzbike-page-1 {
+  grid-template-columns: 1.2fr 1fr;
+  padding-bottom: clamp(2rem, 4vw, 4rem);
+  gap: clamp(1rem, 2vw, 2rem) clamp(1.5rem, 3vw, 3rem);
+  align-items: stretch;
+}
+
+.tozzbike-page-2 {
+  background-color: #ffffff;
+  padding: clamp(90px, 12vw, 130px) clamp(0.75rem, 1.2vw, 1.5rem) clamp(0.75rem, 1.2vw, 1.5rem);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.tozzbike-page-2-grid {
+  width: 100%;
+  max-width: none;
+  height: calc(100vh - clamp(90px, 12vw, 130px) - clamp(1.5rem, 2.4vw, 3rem));
+  display: grid;
+  grid-template-columns: 0.95fr 0.95fr 1.1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "hero logo rider"
+    "tire tire rider";
+  gap: clamp(8px, 1vw, 12px);
+  min-height: 500px;
+  box-sizing: border-box;
+  overflow: hidden;
+  align-items: stretch;
+}
+
+.tozzbike-hero,
+.tozzbike-logo,
+.tozzbike-rider,
+.tozzbike-tire {
+  min-height: 0;
+  min-width: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+}
+
+.tozzbike-hero .tozzbike-page-2-photo,
+.tozzbike-logo .tozzbike-page-2-photo,
+.tozzbike-rider .tozzbike-page-2-photo,
+.tozzbike-tire .tozzbike-page-2-photo {
+  flex: 1;
+  min-height: 0;
+  min-width: 0;
+}
+
+.tozzbike-hero {
+  grid-area: hero;
+}
+
+.tozzbike-logo {
+  grid-area: logo;
+}
+
+.tozzbike-rider {
+  grid-area: rider;
+}
+
+.tozzbike-tire {
+  grid-area: tire;
+}
+
+.tozzbike-page-2-photo {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+}
+
+.tozzbike-page-2-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+}
+
 .joyce-page-3 {
   background-color: #ffffff;
   padding: 0;
@@ -821,6 +1086,13 @@ body.page-project-detail .header .mobile-cta-button:hover {
   padding: clamp(90px, 12vw, 130px) clamp(0.5rem, 1.5vw, 1.5rem) clamp(0.5rem, 1.5vw, 1.5rem);
 }
 
+.beaulife-page-1 {
+  grid-template-columns: 1.2fr 1fr;
+  padding-bottom: clamp(2rem, 4vw, 4rem);
+  gap: clamp(1rem, 2vw, 2rem) clamp(1.5rem, 3vw, 3rem);
+  align-items: stretch;
+}
+
 .beaulife-grid-layout {
   width: 100%;
   height: calc(100vh - clamp(100px, 15vw, 150px));
@@ -832,7 +1104,7 @@ body.page-project-detail .header .mobile-cta-button:hover {
 }
 
 .beaulife-photo-item {
-  background: #f0f0f0;
+  background: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -840,22 +1112,109 @@ body.page-project-detail .header .mobile-cta-button:hover {
   width: 100%;
   height: 100%;
   box-sizing: border-box;
+  min-width: 0;
+  min-height: 0;
 }
 
-.beaulife-photo-item span {
-  font-family: 'Satoshi-Regular', sans-serif;
-  font-size: clamp(0.6rem, 0.85vw, 0.85rem);
-  color: #999999;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
+.beaulife-photo-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
 }
 
-.yume-page-2 {
+.beaulife-photo-center {
+  background: transparent;
+}
+
+.beaulife-photo-center img {
+  object-fit: cover;
+  object-position: center;
+}
+
+.turmotsan-page-1 {
+  grid-template-columns: 1.2fr 1fr;
+  padding-bottom: clamp(2rem, 4vw, 4rem);
+  gap: clamp(1rem, 2vw, 2rem) clamp(1.5rem, 3vw, 3rem);
+  align-items: stretch;
+  height: 100vh;
+}
+
+.turmotsan-page-1 .project-detail-right {
+  overflow: hidden;
+  height: 100%;
+}
+
+.turmotsan-page-1 .project-detail-description-section {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  padding-right: 0;
+}
+
+.turmotsan-page-1 .project-detail-meta-section {
+  margin-top: clamp(1rem, 2vw, 1.75rem);
+}
+
+.turmotsan-page-1 .project-detail-description {
+  font-size: clamp(0.68rem, 0.82vw, 0.86rem);
+  line-height: 1.62;
+}
+
+.turmotsan-page-1 .project-detail-section-title {
+  font-size: clamp(0.86rem, 1vw, 1.02rem);
+  margin-bottom: clamp(0.52rem, 0.8vw, 0.78rem);
+}
+
+.turmotsan-page-1 .project-detail-meta-copyright,
+.turmotsan-page-1 .project-detail-meta-place,
+.turmotsan-page-1 .project-detail-link {
+  font-size: clamp(0.72rem, 0.86vw, 0.86rem);
+}
+
+.turmotsan-page-2 {
   background-color: #ffffff;
   padding: clamp(90px, 12vw, 130px) clamp(0.5rem, 1.5vw, 1.5rem) clamp(0.5rem, 1.5vw, 1.5rem);
 }
 
-.yume-grid-layout {
+.turmotsan-grid-layout {
+  width: 100%;
+  height: calc(100vh - clamp(100px, 15vw, 150px));
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(0.5rem, 1vw, 1rem);
+  min-height: 400px;
+  box-sizing: border-box;
+}
+
+.turmotsan-photo-item {
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  min-width: 0;
+  min-height: 0;
+}
+
+.turmotsan-photo-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.turmotsan-page-3 {
+  background-color: #ffffff;
+  padding: clamp(90px, 12vw, 130px) clamp(0.5rem, 1.5vw, 1.5rem) clamp(0.5rem, 1.5vw, 1.5rem);
+}
+
+.turmotsan-page-3-grid {
   width: 100%;
   height: calc(100vh - clamp(100px, 15vw, 150px));
   display: grid;
@@ -865,8 +1224,131 @@ body.page-project-detail .header .mobile-cta-button:hover {
   box-sizing: border-box;
 }
 
+.turmotsan-page-3-item {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.turmotsan-page-3-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.allshape-page-1 {
+  grid-template-columns: 1.2fr 1fr;
+  padding-bottom: clamp(2rem, 4vw, 4rem);
+  gap: clamp(1rem, 2vw, 2rem) clamp(1.5rem, 3vw, 3rem);
+  align-items: stretch;
+}
+
+.allshape-page-1 .project-detail-description {
+  font-size: clamp(0.88rem, 1vw, 1rem);
+  line-height: 1.6;
+}
+
+.allshape-page-2 {
+  background-color: #ffffff;
+  padding: clamp(90px, 12vw, 130px) clamp(0.5rem, 1.5vw, 1.5rem) clamp(1rem, 2vw, 2rem);
+}
+
+.allshape-page-2-layout {
+  width: 100%;
+  height: calc(100vh - clamp(90px, 12vw, 130px) - clamp(1rem, 2vw, 2rem) - clamp(0.75rem, 1.2vw, 1.25rem));
+  display: grid;
+  grid-template-columns: 1fr 0.92fr 1fr;
+  gap: clamp(0.5rem, 1vw, 1rem);
+  min-height: 400px;
+  box-sizing: border-box;
+}
+
+.allshape-page-2-left,
+.allshape-page-2-right {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.allshape-page-2-left img,
+.allshape-page-2-right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.allshape-page-2-center {
+  width: 100%;
+  height: 100%;
+}
+
+.allshape-center-grid {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: clamp(0.5rem, 1vw, 1rem);
+}
+
+.allshape-center-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.allshape-page-3 {
+  background-color: #ffffff;
+  padding: clamp(90px, 12vw, 130px) clamp(0.5rem, 1.5vw, 1.5rem) clamp(0.5rem, 1.5vw, 1.5rem);
+}
+
+.allshape-page-3-photo {
+  width: 100%;
+  height: calc(100vh - clamp(100px, 15vw, 150px));
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.allshape-page-3-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+}
+
+.yume-page-2 {
+  background-color: #ffffff;
+  padding: clamp(90px, 12vw, 130px) clamp(0.5rem, 1.5vw, 1.5rem) clamp(0.5rem, 1.5vw, 1.5rem);
+}
+
+.yume-page-1 {
+  grid-template-columns: 1.2fr 1fr;
+  padding-bottom: clamp(2rem, 4vw, 4rem);
+  gap: clamp(1rem, 2vw, 2rem) clamp(1.5rem, 3vw, 3rem);
+  align-items: stretch;
+}
+
+.yume-grid-layout {
+  width: 100%;
+  height: calc(100vh - clamp(100px, 15vw, 150px));
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(0.5rem, 1vw, 1rem);
+  min-height: 400px;
+  box-sizing: border-box;
+}
+
 .yume-panel {
-  background: #f0f0f0;
+  background: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -876,12 +1358,50 @@ body.page-project-detail .header .mobile-cta-button:hover {
   box-sizing: border-box;
 }
 
-.yume-panel span {
-  font-family: 'Satoshi-Regular', sans-serif;
-  font-size: clamp(0.6rem, 0.85vw, 0.85rem);
-  color: #999999;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
+.yume-panel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.yume-panel-center {
+  background: #ffffff;
+}
+
+.yume-panel-center img {
+  object-fit: contain;
+  object-position: center;
+}
+
+.yume-page-3 {
+  background-color: #ffffff;
+  padding: clamp(90px, 12vw, 130px) clamp(0.5rem, 1.5vw, 1.5rem) clamp(0.5rem, 1.5vw, 1.5rem);
+}
+
+.yume-page-3-grid {
+  width: 100%;
+  height: calc(100vh - clamp(100px, 15vw, 150px));
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(0.5rem, 1vw, 1rem);
+  min-height: 400px;
+  box-sizing: border-box;
+}
+
+.yume-page-3-item {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.yume-page-3-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
 }
 
 .allshape-page-4 {
@@ -1122,7 +1642,9 @@ body.page-project-detail .header .mobile-cta-button:hover {
 
   .valens-page-2,
   .joyce-page-2,
-  .joyce-teknoloji-page-2 {
+  .joyce-teknoloji-page-2,
+  .tozzbike-page-2,
+  .allshape-page-2 {
     padding: 100px 0.75rem 0.75rem;
     height: 100vh;
   }
@@ -1136,11 +1658,28 @@ body.page-project-detail .header .mobile-cta-button:hover {
     min-height: 450px;
   }
 
+  .tozzbike-page-2-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas:
+      "hero"
+      "logo"
+      "rider"
+      "tire";
+    height: auto;
+  }
+
   .joyce-page-2-left,
   .joyce-teknoloji-page-2-left {
     flex-direction: row;
     gap: 0.75rem;
     height: auto;
+  }
+
+  .tozzbike-page-2-left {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    height: 100%;
   }
 
   .joyce-page-2-top,
@@ -1159,6 +1698,12 @@ body.page-project-detail .header .mobile-cta-button:hover {
   .joyce-page-2-right,
   .joyce-teknoloji-page-2-right {
     height: 250px;
+  }
+
+  .tozzbike-page-2-right {
+    display: grid;
+    grid-template-rows: 0.38fr 0.62fr;
+    height: 100%;
   }
 
   .joyce-page-3 {
@@ -1234,6 +1779,11 @@ body.page-project-detail .header .mobile-cta-button:hover {
     min-height: 400px;
   }
 
+  .allshape-page-2-layout {
+    height: calc(100vh - 125px);
+    min-height: 400px;
+  }
+
   .allshape-page-4 {
     padding: 100px 0.75rem 0.75rem;
   }
@@ -1271,7 +1821,9 @@ body.page-project-detail .header .mobile-cta-button:hover {
 
   .valens-page-2,
   .joyce-page-2,
-  .joyce-teknoloji-page-2 {
+  .joyce-teknoloji-page-2,
+  .tozzbike-page-2,
+  .allshape-page-2 {
     padding: 90px 0.5rem 0.5rem;
     height: 100vh;
   }
@@ -1285,11 +1837,28 @@ body.page-project-detail .header .mobile-cta-button:hover {
     min-height: 400px;
   }
 
+  .tozzbike-page-2-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas:
+      "hero"
+      "logo"
+      "rider"
+      "tire";
+    height: auto;
+  }
+
   .joyce-page-2-left,
   .joyce-teknoloji-page-2-left {
     flex-direction: row;
     gap: 0.5rem;
     height: auto;
+  }
+
+  .tozzbike-page-2-left {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    height: 100%;
   }
 
   .joyce-page-2-top,
@@ -1300,10 +1869,15 @@ body.page-project-detail .header .mobile-cta-button:hover {
     height: 200px;
   }
 
-
   .joyce-page-2-right,
   .joyce-teknoloji-page-2-right {
     height: 200px;
+  }
+
+  .tozzbike-page-2-right {
+    display: grid;
+    grid-template-rows: 0.38fr 0.62fr;
+    height: 100%;
   }
 
   .joyce-page-3 {
@@ -1375,6 +1949,11 @@ body.page-project-detail .header .mobile-cta-button:hover {
     min-height: 350px;
   }
 
+  .allshape-page-2-layout {
+    height: calc(100vh - 115px);
+    min-height: 350px;
+  }
+
   .allshape-page-4 {
     padding: 90px 0.5rem 0.5rem;
   }
@@ -1411,7 +1990,9 @@ body.page-project-detail .header .mobile-cta-button:hover {
 
   .valens-page-2,
   .joyce-page-2,
-  .joyce-teknoloji-page-2 {
+  .joyce-teknoloji-page-2,
+  .tozzbike-page-2,
+  .allshape-page-2 {
     padding: 85px 0.4rem 0.4rem;
     height: 100vh;
   }
@@ -1425,11 +2006,28 @@ body.page-project-detail .header .mobile-cta-button:hover {
     min-height: 350px;
   }
 
+  .tozzbike-page-2-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas:
+      "hero"
+      "logo"
+      "rider"
+      "tire";
+    height: auto;
+  }
+
   .joyce-page-2-left,
   .joyce-teknoloji-page-2-left {
     flex-direction: row;
     gap: 0.4rem;
     height: auto;
+  }
+
+  .tozzbike-page-2-left {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    height: 100%;
   }
 
   .joyce-page-2-top,
@@ -1443,6 +2041,12 @@ body.page-project-detail .header .mobile-cta-button:hover {
   .joyce-page-2-right,
   .joyce-teknoloji-page-2-right {
     height: 180px;
+  }
+
+  .tozzbike-page-2-right {
+    display: grid;
+    grid-template-rows: 0.38fr 0.62fr;
+    height: 100%;
   }
 
   .joyce-page-3 {
@@ -1504,6 +2108,11 @@ body.page-project-detail .header .mobile-cta-button:hover {
     min-height: 320px;
   }
 
+  .allshape-page-2-layout {
+    height: calc(100vh - 105px);
+    min-height: 320px;
+  }
+
   .allshape-page-4 {
     padding: 85px 0.4rem 0.4rem;
   }
@@ -1526,13 +2135,21 @@ body.page-project-detail .header .mobile-cta-button:hover {
 
   .valens-page-2,
   .joyce-page-2,
-  .joyce-teknoloji-page-2 {
+  .joyce-teknoloji-page-2,
+  .tozzbike-page-2,
+  .allshape-page-2 {
     padding: 140px 2rem 2rem;
     height: 100vh;
   }
 
   .joyce-page-2-grid,
   .joyce-teknoloji-page-2-grid {
+    height: calc(100vh - 140px - 4rem);
+    min-height: 600px;
+    gap: 1rem;
+  }
+
+  .tozzbike-page-2-grid {
     height: calc(100vh - 140px - 4rem);
     min-height: 600px;
     gap: 1rem;
@@ -1595,6 +2212,11 @@ body.page-project-detail .header .mobile-cta-button:hover {
 
   .yume-grid-layout {
     height: calc(100vh - 160px);
+    min-height: 600px;
+  }
+
+  .allshape-page-2-layout {
+    height: calc(100vh - 165px);
     min-height: 600px;
   }
 

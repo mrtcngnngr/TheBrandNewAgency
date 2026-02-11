@@ -118,16 +118,21 @@ const Header = () => {
 
   const projectDetailSlugs = [
     'yokote-motors',
+    'yokote',
     'valens-karavan',
+    'valens-caravan',
     'yume-boulangerie',
     'mithras-mc',
+    'reverie-night-club',
     'joyce',
     'joyce-teknoloji',
     'joyce-90',
+    'tozzbike-90',
     'turmotsan',
     'celestial-anatolia',
     'beaulife-club',
-    'allshape'
+    'allshape',
+    'allshape-clinic'
   ];
   
   const hash = window.location.hash.replace('#', '').toLowerCase();
@@ -140,15 +145,21 @@ const Header = () => {
   // Works sayfasında blur efekti olmasın
   const showBlur = isScrolled && !isWorksPage;
 
+  const projectDetailBlur = isProjectDetail && !isWorksPage;
+  const headerBg = projectDetailBlur
+    ? 'rgba(255, 255, 255, 0.5)'
+    : showBlur
+      ? (isLightBackground ? 'rgba(255, 255, 255, 0.6)' : 'rgba(0, 0, 0, 0.5)')
+      : 'transparent';
+  const headerBlur = projectDetailBlur || showBlur ? 'blur(14px) saturate(120%)' : 'none';
+
   return (
     <header 
       className={`header ${showBlur ? 'scrolled' : ''} ${isLightBackground ? 'light-background' : ''}`}
       style={{
-        backgroundColor: showBlur 
-          ? (isLightBackground ? 'rgba(255, 255, 255, 0.6)' : 'rgba(0, 0, 0, 0.5)') 
-          : 'transparent',
-        backdropFilter: showBlur ? 'blur(20px) saturate(120%)' : 'none',
-        WebkitBackdropFilter: showBlur ? 'blur(20px) saturate(120%)' : 'none',
+        backgroundColor: headerBg,
+        backdropFilter: headerBlur,
+        WebkitBackdropFilter: headerBlur,
         boxShadow: 'none',
         transition: 'background-color 0.3s ease, backdrop-filter 0.3s ease'
       }}

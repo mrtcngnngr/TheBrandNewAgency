@@ -81,7 +81,7 @@ Bu çalışmalar, Joyce'un dijital dünyada yalnızca bir araç üreticisi deği
         </div>
 
         <div className="project-detail-page project-detail-page-2 joyce-page-2">
-          <div className="joyce-page-2-grid">
+          <div className="beaulife-grid-layout">
             <div className="joyce-page-2-left">
               <div className="joyce-page-2-top">
                 <div className="joyce-page-2-photo">
@@ -94,15 +94,11 @@ Bu çalışmalar, Joyce'un dijital dünyada yalnızca bir araç üreticisi deği
                 </div>
               </div>
             </div>
-            <div className="joyce-page-2-center">
-              <div className="joyce-page-2-photo">
-                <img src="/images/Joyce/Joyce4.jpg" alt="Joyce" />
-              </div>
+            <div className="beaulife-photo-item">
+              <img src="/images/Joyce/Joyce6.jpg" alt="Joyce" />
             </div>
-            <div className="joyce-page-2-right">
-              <div className="joyce-page-2-photo">
-                <img src="/images/Joyce/Joyce4.jpg" alt="Joyce" />
-              </div>
+            <div className="beaulife-photo-item">
+              <img src="/images/Joyce/Joyce4.jpg" alt="Joyce" />
             </div>
           </div>
         </div>

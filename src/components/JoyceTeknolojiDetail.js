@@ -77,29 +77,25 @@ Dijital iletişim süreci boyunca; web sitesi ve sosyal medya kanallarında mark
           </div>
         </div>
 
-        <div className="project-detail-page project-detail-page-2 joyce-teknoloji-page-2">
-          <div className="joyce-teknoloji-page-2-grid">
-            <div className="joyce-teknoloji-page-2-left">
-              <div className="joyce-teknoloji-page-2-top">
-                <div className="joyce-teknoloji-page-2-photo">
+        <div className="project-detail-page project-detail-page-2 joyce-page-2">
+          <div className="beaulife-grid-layout">
+            <div className="joyce-page-2-left">
+              <div className="joyce-page-2-top">
+                <div className="joyce-page-2-photo">
                   <img src="/images/JoyceTeknoloji/JoyceTeknoloji2.jpg" alt="Joyce Teknoloji" />
                 </div>
               </div>
-              <div className="joyce-teknoloji-page-2-bottom">
-                <div className="joyce-teknoloji-page-2-photo">
+              <div className="joyce-page-2-bottom">
+                <div className="joyce-page-2-photo">
                   <img src="/images/JoyceTeknoloji/JoyceTeknoloji3.jpg" alt="Joyce Teknoloji" />
                 </div>
               </div>
             </div>
-            <div className="joyce-teknoloji-page-2-center">
-              <div className="joyce-teknoloji-page-2-photo">
-                <img src="/images/JoyceTeknoloji/JoyceTeknoloji4.jpg" alt="Joyce Teknoloji" />
-              </div>
+            <div className="beaulife-photo-item joyce-teknoloji-center-item">
+              <img src="/images/JoyceTeknoloji/JoyceTeknoloji4.jpg" alt="Joyce Teknoloji" />
             </div>
-            <div className="joyce-teknoloji-page-2-right">
-              <div className="joyce-teknoloji-page-2-photo">
-                <img src="/images/JoyceTeknoloji/JoyceTeknoloji5.jpg" alt="Joyce Teknoloji" />
-              </div>
+            <div className="beaulife-photo-item">
+              <img src="/images/JoyceTeknoloji/JoyceTeknoloji5.jpg" alt="Joyce Teknoloji" />
             </div>
           </div>
         </div>
