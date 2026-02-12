@@ -10,26 +10,38 @@ const LoadingScreen = ({ onComplete }) => {
 
   useEffect(() => {
     const video = videoRef.current;
-    if (video) {
-      video.setAttribute('playsinline', 'true');
-      video.setAttribute('webkit-playsinline', 'true');
-      
-      const handleLoadedMetadata = () => {
-        video.setAttribute('poster', '');
-      };
+    if (!video) return;
 
-      const handleCanPlay = () => {
-        video.playbackRate = 1.0;
-      };
+    video.setAttribute('playsinline', 'true');
+    video.setAttribute('webkit-playsinline', 'true');
 
-      video.addEventListener('loadedmetadata', handleLoadedMetadata);
-      video.addEventListener('canplay', handleCanPlay);
+    const forcePlay = (retriesLeft = 4) => {
+      const p = video.play();
+      if (p && typeof p.then === 'function') {
+        p.catch(() => {
+          if (retriesLeft > 0) setTimeout(() => forcePlay(retriesLeft - 1), 400);
+        });
+      }
+    };
 
-      return () => {
-        video.removeEventListener('loadedmetadata', handleLoadedMetadata);
-        video.removeEventListener('canplay', handleCanPlay);
-      };
-    }
+    const handleLoadedMetadata = () => {
+      video.setAttribute('poster', '');
+    };
+
+    const handleCanPlay = () => {
+      video.playbackRate = 1.0;
+      forcePlay(3);
+    };
+
+    video.addEventListener('loadedmetadata', handleLoadedMetadata);
+    video.addEventListener('canplay', handleCanPlay);
+
+    forcePlay();
+
+    return () => {
+      video.removeEventListener('loadedmetadata', handleLoadedMetadata);
+      video.removeEventListener('canplay', handleCanPlay);
+    };
   }, []);
 
   useEffect(() => {
@@ -70,7 +82,7 @@ const LoadingScreen = ({ onComplete }) => {
           autoPlay 
           muted 
           playsInline
-          preload="metadata"
+          preload="auto"
           webkit-playsinline="true"
           aria-label="Brand transformation video"
         >

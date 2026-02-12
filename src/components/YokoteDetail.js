@@ -8,8 +8,11 @@ const YokoteDetail = () => {
   }, []);
 
   const description = `Yokote Motors, elektrik motorları alanında yerli üretimi ve teknolojik bağımsızlığı merkeze alan bir markadır. Proje sürecinde, markanın dijital dünyadaki iletişiminin doğru bir çerçeveye oturtulması ve sosyal medyada tutarlı bir marka dili oluşturulması hedeflendi.
+
 Marka ile yürütülen çalışmalarda; Yokote'nin vizyonu, teknik yetkinliği ve sektörel konumu yakından ele alındı. Mühendislik odaklı yapının dijital iletişimde doğru temsil edilmesi, sürecin temel önceliği oldu. Bu doğrultuda sosyal medya stratejisi, içerik dili ve görsel anlatım markanın karakteriyle uyumlu şekilde kurgulandı.
+
 Sosyal medya yönetimi kapsamında; içerik planlaması, görsel yönlendirme ve dijital iletişim dili üzerinde çalışıldı. Teknik bilgiyi sade ve anlaşılır bir biçimde aktaran içerikler üretilerek, markanın yalnızca bir üretici değil, aynı zamanda teknoloji ve sürdürülebilirlik odağında düşünen bir yapı olduğu vurgulandı.
+
 Yokote Motors'un dijital iletişim süreci, bu yaklaşım sayesinde daha tutarlı, güçlü ve güven veren bir yapıya kavuştu. Sosyal medya, markanın mühendislik gücünü destekleyen stratejik bir iletişim alanı olarak konumlandırıldı.`;
 
   return (

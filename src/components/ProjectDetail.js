@@ -41,7 +41,9 @@ const projects = [
 
 Marka ile yürütülen çalışmalarda; Yokote'nin vizyonu, teknik yetkinliği ve sektörel konumu yakından ele alındı. Mühendislik odaklı yapının dijital iletişimde doğru temsil edilmesi, sürecin temel önceliği oldu. Bu doğrultuda sosyal medya stratejisi, içerik dili ve görsel anlatım markanın karakteriyle uyumlu şekilde kurgulandı.
 
-Sosyal medya yönetimi kapsamında; içerik planlaması, görsel yönlendirme ve dijital iletişim dili üzerinde çalışıldı. Teknik bilgiyi sade ve anlaşılır bir biçimde aktaran içerikler üretilerek, markanın yalnızca bir üretici değil, aynı zamanda teknoloji ve sürdürülebilirlik odağında düşünen bir yapı olduğu vurgulandı.`,
+Sosyal medya yönetimi kapsamında; içerik planlaması, görsel yönlendirme ve dijital iletişim dili üzerinde çalışıldı. Teknik bilgiyi sade ve anlaşılır bir biçimde aktaran içerikler üretilerek, markanın yalnızca bir üretici değil, aynı zamanda teknoloji ve sürdürülebilirlik odağında düşünen bir yapı olduğu vurgulandı.
+
+Yokote Motors'un dijital iletişim süreci, bu yaklaşım sayesinde daha tutarlı, güçlü ve güven veren bir yapıya kavuştu. Sosyal medya, markanın mühendislik gücünü destekleyen stratejik bir iletişim alanı olarak konumlandırıldı.`,
     image: '/images/yokote-motors.jpg'
   },
   {
@@ -56,9 +58,11 @@ Sosyal medya yönetimi kapsamında; içerik planlaması, görsel yönlendirme ve
     },
     description: `Valens, doğayla uyumlu, sürdürülebilir ve modern mobil yaşam alanları sunan bir karavan markasıdır. Proje kapsamında, markanın yaşam tarzı odağını dijital dünyada doğru şekilde yansıtacak bir iletişim dili ve görünürlük yapısı oluşturulması hedeflendi.
 
-Valens ile yürütülen çalışmalarda, markanın temsil ettiği özgürlük, bağımsızlık ve modern gezgin yaşamı merkeze alındı. Mobil yaşam ve dijital nomad kültürünün yükselişi doğrultusunda, Valens'in yalnızca bir ürün değil, bütüncül bir yaşam deneyimi sunduğu vurgulandı.
+Valens ile yürütülen çalışmalarda, markanın temsil ettiği özgürlük, bağımsızlık ve modern gezgin yaşamı merkeze alındı. Mobil yaşam ve dijital nomad kültürünün yükselişi doğrultusunda, Valens'in yalnızca bir ürün değil, bütüncül bir yaşam deneyimi sunduğu vurgulandı. Bu yaklaşım, markanın dijital iletişiminde temel referans noktası olarak ele alındı.
 
-Sosyal medya ve dijital pazarlama sürecinde; içerik dili, yayın planı ve görsel anlatım Valens'in yaşam tarzı perspektifiyle uyumlu şekilde kurgulandı.`,
+Sosyal medya ve dijital pazarlama sürecinde; içerik dili, yayın planı ve görsel anlatım Valens'in yaşam tarzı perspektifiyle uyumlu şekilde kurgulandı. Ürünlerin teknik özellikleri kadar, sunduğu deneyimi ve kullanıcıyla kurduğu duygusal bağ ön plana çıkarıldı. Fotoğraf ve video içerikler, bu anlatımı destekleyecek şekilde planlandı ve üretildi.
+
+Dijital kanallar üzerinden yürütülen iletişim, Valens'in hedef kitlesiyle daha güçlü ve tutarlı bir bağ kurmasını sağladı. Sosyal medya, markanın yaşam tarzını görünür kılan; dijital pazarlama ise bu görünürlüğü destekleyen stratejik bir büyüme alanı olarak konumlandırıldı.`,
     image: '/images/valens-karavan.jpg'
   },
   {
@@ -106,24 +110,6 @@ Yume Boulangerie için yürütülen çalışmalarda, markanın günlük hayatın
 
 Joyce için yürütülen çalışmalarda, markanın modern şehir yaşamına entegre olma vizyonu merkeze alındı. Mikromobilite, yalnızca bir ulaşım aracı olarak değil; günlük hayatın doğal bir parçası olarak ele alındı.`,
     image: '/images/joyce.jpg',
-    services: [
-      'Sosyal Medya Yönetimi',
-      'Fotoğraf & Video Prodüksiyonu',
-      'İçerik Takvimi Planlama & Uygulama',
-      'Instagram & TikTok İçerik Üretimi',
-      'Yaratıcı Metin Yazarlığı & Açıklama Stratejisi',
-      'Kampanya & Promosyon Planlama',
-      'Topluluk Yönetimi',
-      'DM Yanıt Rehberi',
-      'Sosyal Medya Reklam Stratejisi',
-      'Influencer İş Birliği Konseptleri',
-      'Fotoğraf & Video Çekimleri',
-      'Etkileşim Artırma & Hedef Kitle ile İletişim',
-      'Trend Takibi & Viral İçerik Uyarlaması',
-      'Web Sitesi Tasarımı',
-      'Müşteri Deneyimi',
-      'Marka Fuar Tasarımı'
-    ]
   },
   {
     id: 6,

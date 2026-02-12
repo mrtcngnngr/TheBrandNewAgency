@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { throttle } from '../utils/performance';
 import './Header.css';
 
 const Header = () => {
@@ -8,6 +9,8 @@ const Header = () => {
   const [currentPage, setCurrentPage] = useState('home');
   const menuRef = useRef(null);
   const mobileMenuRef = useRef(null);
+  const isScrolledRef = useRef(false);
+  isScrolledRef.current = isScrolled;
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -49,32 +52,26 @@ const Header = () => {
     };
   }, []);
 
-  // Scroll detection
   useEffect(() => {
-    const updateScrollState = () => {
+    const updateScrollState = throttle(() => {
       const scrollY = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
       const docHeight = document.documentElement.scrollHeight;
       const winHeight = window.innerHeight;
-      const hasScroll = docHeight > winHeight + 10; // 10px tolerance
-      
-      // Sadece scroll edilebilir içerik varsa blur aktif olsun
-      if (hasScroll && scrollY > 10 && !isScrolled) {
+      const hasScroll = docHeight > winHeight + 10;
+      if (hasScroll && scrollY > 10 && !isScrolledRef.current) {
         setIsScrolled(true);
-      } else if (scrollY < 5 && isScrolled) {
+      } else if (scrollY < 5 && isScrolledRef.current) {
         setIsScrolled(false);
       }
-    };
-    
+    }, 80);
     updateScrollState();
-    
     window.addEventListener('scroll', updateScrollState, { passive: true });
     window.addEventListener('resize', updateScrollState, { passive: true });
-    
     return () => {
       window.removeEventListener('scroll', updateScrollState);
       window.removeEventListener('resize', updateScrollState);
     };
-  }, [isScrolled]);
+  }, []);
 
   const handleMenuClick = (page) => {
     setIsMenuOpen(false);
@@ -141,8 +138,6 @@ const Header = () => {
   const isLightBackground = currentPage === 'contact' || isProjectDetail;
   const isWorksPage = currentPage === 'works' || hash === 'works';
   const logoSrc = isLightBackground ? '/images/TBNA_Logo2.png' : '/images/TBNA_Logo1.png';
-  
-  // Works sayfasında blur efekti olmasın
   const showBlur = isScrolled && !isWorksPage;
 
   const projectDetailBlur = isProjectDetail && !isWorksPage;
@@ -183,11 +178,7 @@ const Header = () => {
               margin: 0,
               padding: 0
             }}
-            onError={(e) => {
-              if (process.env.NODE_ENV === 'development') {
-                console.error('Logo yüklenemedi:', logoSrc);
-              }
-            }}
+            onError={() => {}}
           />
         </a>
         <div className="header-right">
@@ -256,5 +247,5 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default React.memo(Header);
 

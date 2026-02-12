@@ -15,8 +15,10 @@ html, body {
 
 .App {
   width: 100%;
+  min-width: 0;
   min-height: 100vh;
   min-height: 100svh;
+  min-height: 100dvh;
   background-color: #000000;
   color: #ffffff;
   overflow-x: hidden;

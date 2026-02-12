@@ -8,8 +8,11 @@ const JoyceTeknolojiDetail = () => {
   }, []);
 
   const description = `Joyce Teknoloji, elektrikli araçlar, mikromobilite ve ileri mühendislik teknolojileri alanında yerli üretim ve inovasyonu merkeze alan bir teknoloji markasıdır. Proje kapsamında, markanın mühendislik gücünü ve vizyonunu dijital dünyada doğru ve anlaşılır bir iletişim diliyle aktarmak hedeflendi.
+
 Joyce Teknoloji ile yürütülen çalışmalarda, markanın teknik derinliği ve sürdürülebilirlik odağı ön planda tutuldu. Elektrik motorları, batarya sistemleri ve otonom sürüş teknolojileri gibi karmaşık konuların; sade, güven veren ve tutarlı bir dijital anlatımla sunulması sürecin temel yaklaşımı oldu.
+
 Sosyal medya ve dijital pazarlama tarafında; içerik stratejisi, yayın dili ve kampanya kurguları markanın mühendislik karakterine uygun şekilde ele alındı. Teknik bilgi, erişilebilir ve anlaşılır bir dile dönüştürülerek, Joyce Teknoloji'nin yalnızca teknoloji üreten değil, vizyon ortaya koyan bir marka olarak konumlanması desteklendi.
+
 Dijital iletişim süreci boyunca; web sitesi ve sosyal medya kanallarında markanın uzmanlığını yansıtan içerikler üretildi, kampanya ve tanıtım çalışmalarıyla marka bilinirliği güçlendirildi. Joyce Teknoloji, bu çalışmalar sayesinde dijital dünyada daha net, güvenilir ve sürdürülebilir bir iletişim yapısına kavuştu.`;
 
   return (

@@ -8,8 +8,11 @@ const ValensCaravanDetail = () => {
   }, []);
 
   const description = `Valens, doğayla uyumlu, sürdürülebilir ve modern mobil yaşam alanları sunan bir karavan markasıdır. Proje kapsamında, markanın yaşam tarzı odağını dijital dünyada doğru şekilde yansıtacak bir iletişim dili ve görünürlük yapısı oluşturulması hedeflendi.
+
 Valens ile yürütülen çalışmalarda, markanın temsil ettiği özgürlük, bağımsızlık ve modern gezgin yaşamı merkeze alındı. Mobil yaşam ve dijital nomad kültürünün yükselişi doğrultusunda, Valens'in yalnızca bir ürün değil, bütüncül bir yaşam deneyimi sunduğu vurgulandı. Bu yaklaşım, markanın dijital iletişiminde temel referans noktası olarak ele alındı.
+
 Sosyal medya ve dijital pazarlama sürecinde; içerik dili, yayın planı ve görsel anlatım Valens'in yaşam tarzı perspektifiyle uyumlu şekilde kurgulandı. Ürünlerin teknik özellikleri kadar, sunduğu deneyimi ve kullanıcıyla kurduğu duygusal bağ ön plana çıkarıldı. Fotoğraf ve video içerikler, bu anlatımı destekleyecek şekilde planlandı ve üretildi.
+
 Dijital kanallar üzerinden yürütülen iletişim, Valens'in hedef kitlesiyle daha güçlü ve tutarlı bir bağ kurmasını sağladı. Sosyal medya, markanın yaşam tarzını görünür kılan; dijital pazarlama ise bu görünürlüğü destekleyen stratejik bir büyüme alanı olarak konumlandırıldı.`;
 
   return (

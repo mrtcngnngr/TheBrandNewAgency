@@ -117,3 +117,25 @@
   }
 }
 
+@media (max-width: 375px) {
+  .tooltip-card {
+    max-width: calc(100vw - 1.75rem);
+    padding: 0.9rem 0.9rem 0.9rem 0.9rem;
+    font-size: 0.8rem;
+    line-height: 1.45;
+  }
+
+  .tooltip-close {
+    width: 24px;
+    height: 24px;
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .tooltip-card {
+    max-width: calc(100vw - 1.5rem);
+    padding: 0.75rem 0.75rem 0.75rem 0.75rem;
+    font-size: 0.78rem;
+  }
+}

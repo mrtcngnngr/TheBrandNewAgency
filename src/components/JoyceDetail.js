@@ -16,7 +16,7 @@ Sosyal medya ve dijital pazarlama sürecinde; içerik stratejisi, yayın dili ve
 Bu çalışmalar, Joyce'un dijital dünyada yalnızca bir araç üreticisi değil; çağdaş, çevreye duyarlı ve stil sahibi bir mobilite markası olarak konumlanmasını destekledi.`;
 
   return (
-    <section className="project-detail">
+    <section className="project-detail joyce-detail">
       <div className="project-detail-container">
         <div className="project-detail-page project-detail-page-1">
           <div className="project-detail-header">

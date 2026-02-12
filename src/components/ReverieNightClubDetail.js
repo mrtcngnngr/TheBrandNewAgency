@@ -8,8 +8,11 @@ const ReverieNightClubDetail = () => {
   }, []);
 
   const description = `Reveire, gece hayatını yalnızca bir eğlence alanı olarak değil, güçlü bir atmosfer ve deneyim olarak konumlayan bir nightlife markasıdır. Proje kapsamında, markanın dijital dünyadaki görünürlüğünü güçlendirecek ve mekânın karakterini doğru yansıtacak bir sosyal medya dili oluşturulması hedeflendi.
+
 Çalışma sürecinde, Reveire'ın müzik anlayışı, hedef kitlesi ve mekânsal atmosferi merkeze alındı. Sosyal medya içerikleri; yalnızca etkinlik duyuruları üzerinden değil, mekânın hissini, temposunu ve geceyle kurduğu ilişkiyi yansıtan bir anlatı üzerinden kurgulandı. Amaç, Reveire'ı yalnızca görülen değil, hissedilen bir marka haline getirmekti.
+
 Sosyal medya yönetimi kapsamında; post ve story içerikleri için tutarlı ve ayırt edici bir görsel dil oluşturuldu. Işık, kalabalık, müzik ve hareket gibi gece kulübü dinamikleri içerik kurgusunun temel unsurları olarak ele alındı. Yayın dili, hızlı tüketilen ancak akılda kalan bir iletişim yapısı üzerine inşa edildi.
+
 Ortaya çıkan içerikler, Reveire'ın gece hayatındaki konumunu güçlendiren; enerjik, çağdaş ve karakter sahibi bir dijital görünüm sağladı. Sosyal medya, markanın atmosferini dijital dünyaya taşıyan ve hedef kitlesiyle sürekli temas kuran stratejik bir iletişim alanı olarak konumlandırıldı.`;
 
   return (

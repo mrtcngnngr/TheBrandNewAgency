@@ -400,3 +400,19 @@
     font-size: clamp(1.25rem, 5vw, 1.75rem);
   }
 }
+
+@media (max-width: 320px) {
+  .services-container {
+    padding: 5.5rem 0.75rem 3rem 0.75rem;
+    gap: 2.5rem;
+  }
+
+  .services-headline {
+    font-size: clamp(1.25rem, 5.5vw, 1.85rem);
+  }
+
+  .headline-line-1,
+  .headline-line-2 {
+    font-size: clamp(1.05rem, 4.5vw, 1.45rem);
+  }
+}

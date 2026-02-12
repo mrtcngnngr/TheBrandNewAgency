@@ -710,3 +710,14 @@ body.page-schedule .header .mobile-menu-content .dropdown-cta {
   }
 }
 
+@media (max-width: 320px) {
+  .schedule-container {
+    padding: 0 0.75rem 1.25rem 0.75rem;
+    padding-top: 5.5rem;
+    gap: 1.5rem;
+  }
+
+  .schedule-headline {
+    font-size: clamp(1.35rem, 6.5vw, 2.1rem);
+  }
+}

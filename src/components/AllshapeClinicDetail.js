@@ -8,8 +8,11 @@ const AllshapeClinicDetail = () => {
   }, []);
 
   const description = `Allshape Clinic, estetik ve sağlık alanında kişiye özel çözümler sunan, güven ve profesyonellik odağında konumlanan bir kliniktir. Proje kapsamında, markanın belirlenen konumlandırmasının sosyal medya üzerinden doğru ve tutarlı bir iletişim diliyle yansıtılması hedeflendi.
+
 Allshape Clinic ile yürütülen çalışmalarda, kliniğin estetik anlayışı ve hizmet yaklaşımı merkeze alındı. Marka konumlandırma sürecinde yapılan analizler ve belirlenen iletişim çerçevesi doğrultusunda, sosyal medya içerikleri güven veren, sade ve bilgilendirici bir yapı üzerine kurgulandı. Amaç, kliniğin uzmanlığını ön plana çıkarırken, estetik beklentileri abartıdan uzak bir dil ile aktarmaktı.
+
 Sosyal medya yönetimi sürecinde; hizmet tanıtımları, bilgilendirici içerikler ve kampanya iletişimi dengeli bir içerik yapısı içerisinde ele alındı. Klinik hizmetlerin doğası gereği, içerik dili; doğal görünüm, profesyonel yaklaşım ve danışan güveni ekseninde şekillendirildi. Reels, post ve story içerikleri, markanın duruşunu destekleyecek şekilde planlandı.
+
 Bu süreç sayesinde Allshape Clinic'in sosyal medya hesapları, yalnızca görsel paylaşım yapılan alanlar olmaktan çıkarak; kliniğin yaklaşımını, uzmanlığını ve hizmet anlayışını doğru şekilde yansıtan bir dijital iletişim kanalına dönüştü. Sosyal medya, markanın konumlandırmasını destekleyen tamamlayıcı bir mecra olarak ele alındı.`;
 
   return (

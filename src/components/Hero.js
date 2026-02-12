@@ -7,35 +7,45 @@ const Hero = () => {
 
   useEffect(() => {
     const video = videoRef.current;
-    if (video) {
-      video.setAttribute('playsinline', 'true');
-      video.setAttribute('webkit-playsinline', 'true');
-      
-      const handleVideoEnd = () => {
-        video.pause();
-        if (wrapperRef.current) {
-          wrapperRef.current.classList.add('video-ended');
-        }
-      };
+    if (!video) return;
 
-      const handleLoadedMetadata = () => {
-        video.setAttribute('poster', '');
-      };
+    video.setAttribute('playsinline', 'true');
+    video.setAttribute('webkit-playsinline', 'true');
 
-      const handleCanPlay = () => {
-        video.playbackRate = 1.0;
-      };
+    const forcePlay = (retriesLeft = 4) => {
+      const p = video.play();
+      if (p && typeof p.then === 'function') {
+        p.catch(() => {
+          if (retriesLeft > 0) setTimeout(() => forcePlay(retriesLeft - 1), 400);
+        });
+      }
+    };
 
-      video.addEventListener('ended', handleVideoEnd);
-      video.addEventListener('loadedmetadata', handleLoadedMetadata);
-      video.addEventListener('canplay', handleCanPlay);
+    const handleVideoEnd = () => {
+      video.pause();
+      if (wrapperRef.current) wrapperRef.current.classList.add('video-ended');
+    };
 
-      return () => {
-        video.removeEventListener('ended', handleVideoEnd);
-        video.removeEventListener('loadedmetadata', handleLoadedMetadata);
-        video.removeEventListener('canplay', handleCanPlay);
-      };
-    }
+    const handleLoadedMetadata = () => {
+      video.setAttribute('poster', '');
+    };
+
+    const handleCanPlay = () => {
+      video.playbackRate = 1.0;
+      forcePlay(3);
+    };
+
+    video.addEventListener('ended', handleVideoEnd);
+    video.addEventListener('loadedmetadata', handleLoadedMetadata);
+    video.addEventListener('canplay', handleCanPlay);
+
+    forcePlay();
+
+    return () => {
+      video.removeEventListener('ended', handleVideoEnd);
+      video.removeEventListener('loadedmetadata', handleLoadedMetadata);
+      video.removeEventListener('canplay', handleCanPlay);
+    };
   }, []);
 
   return (
@@ -47,7 +57,7 @@ const Hero = () => {
           autoPlay 
           muted 
           playsInline
-          preload="metadata"
+          preload="auto"
           webkit-playsinline="true"
           aria-label="Brand transformation video"
         >
