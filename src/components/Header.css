@@ -4,9 +4,17 @@
   left: 0;
   right: 0;
   height: 90px;
-  background: rgba(255, 255, 255, 0.06);
   z-index: 999;
   pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s ease-out;
+}
+
+.header-bg.header-bg-visible {
+  opacity: 1;
+  background-color: transparent;
+  backdrop-filter: blur(12px) saturate(100%);
+  -webkit-backdrop-filter: blur(12px) saturate(100%);
 }
 
 .header {

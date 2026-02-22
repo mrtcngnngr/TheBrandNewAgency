@@ -164,6 +164,7 @@ function App() {
         {isLoading && <LoadingScreen onComplete={handleLoadingComplete} />}
         {!isLoading && (
           <>
+            <div data-scroll-sentinel aria-hidden="true" style={{ position: 'absolute', top: 0, left: 0, width: '1px', height: '1px', pointerEvents: 'none', zIndex: -1 }} />
             <Header />
             <Suspense fallback={<div style={loadingFallbackStyle} />}>
       {currentPage === 'works' && <Works />}

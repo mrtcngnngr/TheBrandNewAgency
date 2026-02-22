@@ -7,6 +7,58 @@ const Header = () => {
   const [currentPage, setCurrentPage] = useState('home');
   const menuRef = useRef(null);
   const mobileMenuRef = useRef(null);
+  const headerBgRef = useRef(null);
+
+  const projectDetailSlugs = [
+    'yokote-motors', 'yokote', 'valens-karavan', 'valens-caravan', 'yume-boulangerie',
+    'mithras-mc', 'reverie-night-club', 'joyce', 'joyce-teknoloji', 'joyce-90', 'tozzbike-90',
+    'turmotsan', 'celestial-anatolia', 'beaulife-club', 'allshape', 'allshape-clinic'
+  ];
+
+  useEffect(() => {
+    const headerBg = headerBgRef.current;
+    if (!headerBg) return;
+    let last = false;
+    let t = null;
+    const setVisible = (visible) => {
+      if (last === visible) return;
+      last = visible;
+      if (visible) headerBg.classList.add('header-bg-visible');
+      else headerBg.classList.remove('header-bg-visible');
+    };
+    const schedule = (visible) => {
+      if (t) clearTimeout(t);
+      t = setTimeout(() => { t = null; setVisible(visible); }, 200);
+    };
+    const attach = () => {
+      const container = document.querySelector('.project-detail-container');
+      if (container) {
+        const onScroll = () => schedule(container.scrollTop > 20);
+        container.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+        return () => { if (t) clearTimeout(t); container.removeEventListener('scroll', onScroll); };
+      }
+      const sentinel = document.querySelector('[data-scroll-sentinel]');
+      if (sentinel) {
+        const obs = new IntersectionObserver(
+          ([e]) => schedule(!e.isIntersecting),
+          { root: null, rootMargin: '-20px 0 0 0', threshold: 0 }
+        );
+        obs.observe(sentinel);
+        setVisible((window.pageYOffset || document.documentElement.scrollTop) > 20);
+        return () => { if (t) clearTimeout(t); obs.disconnect(); };
+      }
+    };
+    let cleanup = attach();
+    if (projectDetailSlugs.includes(currentPage)) {
+      const timeoutId = setTimeout(() => {
+        if (cleanup) cleanup();
+        cleanup = attach();
+      }, 400);
+      return () => { clearTimeout(timeoutId); if (cleanup) cleanup(); };
+    }
+    return () => { if (cleanup) cleanup(); };
+  }, [currentPage]);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -88,25 +140,6 @@ const Header = () => {
     </>
   );
 
-  const projectDetailSlugs = [
-    'yokote-motors',
-    'yokote',
-    'valens-karavan',
-    'valens-caravan',
-    'yume-boulangerie',
-    'mithras-mc',
-    'reverie-night-club',
-    'joyce',
-    'joyce-teknoloji',
-    'joyce-90',
-    'tozzbike-90',
-    'turmotsan',
-    'celestial-anatolia',
-    'beaulife-club',
-    'allshape',
-    'allshape-clinic'
-  ];
-  
   const hash = window.location.hash.replace('#', '').toLowerCase();
   
   const isProjectDetail = projectDetailSlugs.includes(currentPage) || projectDetailSlugs.includes(hash);
@@ -115,7 +148,7 @@ const Header = () => {
 
   return (
     <>
-      <div className="header-bg" aria-hidden="true" />
+      <div ref={headerBgRef} className="header-bg" aria-hidden="true" />
       <header className={`header ${isLightBackground ? 'light-background' : ''}`}>
       <div className="header-container">
         <a 
