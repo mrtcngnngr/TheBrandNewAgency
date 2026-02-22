@@ -10,7 +10,6 @@ const Header = () => {
   const menuRef = useRef(null);
   const mobileMenuRef = useRef(null);
   const isScrolledRef = useRef(false);
-  const clearScrolledTimeoutRef = useRef(null);
   isScrolledRef.current = isScrolled;
 
   useEffect(() => {
@@ -82,49 +81,34 @@ const Header = () => {
     const attach = () => {
       const container = document.querySelector('.project-detail-container');
       if (container) {
-        let clearFalseAt = null;
-        const onContainerScroll = throttle(() => {
+        let rafId = null;
+        const onContainerScroll = () => {
+          if (rafId) cancelAnimationFrame(rafId);
           const top = container.scrollTop;
-          if (top > 4) {
-            if (clearFalseAt) {
-              clearTimeout(clearFalseAt);
-              clearFalseAt = null;
-            }
-            setIsScrolled(true);
-          } else {
-            if (!clearFalseAt) {
-              clearFalseAt = setTimeout(() => {
-                clearFalseAt = null;
-                setIsScrolled(false);
-              }, 80);
-            }
-          }
-        }, 40);
+          rafId = requestAnimationFrame(() => {
+            rafId = null;
+            setIsScrolled(top > 4);
+          });
+        };
         container.addEventListener('scroll', onContainerScroll, { passive: true });
         onContainerScroll();
         return () => {
-          if (clearFalseAt) clearTimeout(clearFalseAt);
+          if (rafId) cancelAnimationFrame(rafId);
           container.removeEventListener('scroll', onContainerScroll);
         };
       }
 
       const sentinel = document.querySelector('[data-scroll-sentinel]');
       if (sentinel) {
+        let rafId = null;
         const observer = new IntersectionObserver(
           ([entry]) => {
-            if (!entry.isIntersecting) {
-              if (clearScrolledTimeoutRef.current) {
-                clearTimeout(clearScrolledTimeoutRef.current);
-                clearScrolledTimeoutRef.current = null;
-              }
-              setIsScrolled(true);
-            } else {
-              if (clearScrolledTimeoutRef.current) clearTimeout(clearScrolledTimeoutRef.current);
-              clearScrolledTimeoutRef.current = setTimeout(() => {
-                clearScrolledTimeoutRef.current = null;
-                setIsScrolled(false);
-              }, 80);
-            }
+            if (rafId) cancelAnimationFrame(rafId);
+            const next = !entry.isIntersecting;
+            rafId = requestAnimationFrame(() => {
+              rafId = null;
+              setIsScrolled(next);
+            });
           },
           { root: null, rootMargin: '-6px 0 0 0', threshold: 0 }
         );
@@ -132,10 +116,7 @@ const Header = () => {
         const scrollY = getScrollTop();
         if (scrollY > 6) setIsScrolled(true);
         return () => {
-          if (clearScrolledTimeoutRef.current) {
-            clearTimeout(clearScrolledTimeoutRef.current);
-            clearScrolledTimeoutRef.current = null;
-          }
+          if (rafId) cancelAnimationFrame(rafId);
           observer.disconnect();
         };
       }
@@ -231,18 +212,17 @@ const Header = () => {
   const showBlur = isScrolled;
   const logoSrc = (isLightBackground || showBlur) ? '/images/TBNA_Logo2.png' : '/images/TBNA_Logo1.png';
 
-  const headerBg = showBlur ? 'rgba(255, 255, 255, 0.35)' : 'transparent';
-  const headerBlur = showBlur ? 'blur(14px) saturate(120%)' : 'none';
+  const headerBlur = showBlur ? 'blur(14px) saturate(100%)' : 'none';
 
   return (
     <header 
       className={`header ${showBlur ? 'scrolled' : ''} ${isLightBackground || showBlur ? 'light-background' : ''}`}
       style={{
-        backgroundColor: headerBg,
+        backgroundColor: 'transparent',
         backdropFilter: headerBlur,
         WebkitBackdropFilter: headerBlur,
         boxShadow: 'none',
-        transition: 'background-color 0.1s ease-out, backdrop-filter 0.1s ease-out'
+        transition: 'none'
       }}
     >
       <div className="header-container">
