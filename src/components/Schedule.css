@@ -1,5 +1,6 @@
 .schedule-wrapper {
   width: 100%;
+  contain: layout style;
   min-height: 100vh;
   min-height: 100svh;
   position: relative;

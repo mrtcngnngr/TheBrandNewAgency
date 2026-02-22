@@ -18,6 +18,10 @@ const Header = () => {
   useEffect(() => {
     const headerBg = headerBgRef.current;
     if (!headerBg) return;
+    if (projectDetailSlugs.includes(currentPage)) {
+      headerBg.classList.remove('header-bg-visible');
+      return;
+    }
     let last = false;
     let t = null;
     const setVisible = (visible) => {
@@ -30,34 +34,16 @@ const Header = () => {
       if (t) clearTimeout(t);
       t = setTimeout(() => { t = null; setVisible(visible); }, 200);
     };
-    const attach = () => {
-      const container = document.querySelector('.project-detail-container');
-      if (container) {
-        const onScroll = () => schedule(container.scrollTop > 20);
-        container.addEventListener('scroll', onScroll, { passive: true });
-        onScroll();
-        return () => { if (t) clearTimeout(t); container.removeEventListener('scroll', onScroll); };
-      }
-      const sentinel = document.querySelector('[data-scroll-sentinel]');
-      if (sentinel) {
-        const obs = new IntersectionObserver(
-          ([e]) => schedule(!e.isIntersecting),
-          { root: null, rootMargin: '-20px 0 0 0', threshold: 0 }
-        );
-        obs.observe(sentinel);
-        setVisible((window.pageYOffset || document.documentElement.scrollTop) > 20);
-        return () => { if (t) clearTimeout(t); obs.disconnect(); };
-      }
-    };
-    let cleanup = attach();
-    if (projectDetailSlugs.includes(currentPage)) {
-      const timeoutId = setTimeout(() => {
-        if (cleanup) cleanup();
-        cleanup = attach();
-      }, 400);
-      return () => { clearTimeout(timeoutId); if (cleanup) cleanup(); };
+    const sentinel = document.querySelector('[data-scroll-sentinel]');
+    if (sentinel) {
+      const obs = new IntersectionObserver(
+        ([e]) => schedule(!e.isIntersecting),
+        { root: null, rootMargin: '-20px 0 0 0', threshold: 0 }
+      );
+      obs.observe(sentinel);
+      setVisible((window.pageYOffset || document.documentElement.scrollTop) > 20);
+      return () => { if (t) clearTimeout(t); obs.disconnect(); };
     }
-    return () => { if (cleanup) cleanup(); };
   }, [currentPage]);
 
   useEffect(() => {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { motion } from 'framer-motion';
 import './Schedule.css';
 import { 
@@ -9,6 +9,8 @@ import {
   sanitizeInput,
   checkRateLimit 
 } from '../utils/validation';
+
+const MAX_MESSAGE_LENGTH = 250;
 
 const Schedule = () => {
   useEffect(() => {
@@ -33,40 +35,36 @@ const Schedule = () => {
     message: false
   });
 
-  const MAX_MESSAGE_LENGTH = 250;
+  const handleChange = useCallback((e) => {
+    const { name, value } = e.target;
+    if (name === 'message' && value.length > MAX_MESSAGE_LENGTH) return;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  }, []);
 
-  const handleChange = (e) => {
-    const value = e.target.value;
-    if (e.target.name === 'message' && value.length > MAX_MESSAGE_LENGTH) {
-      return;
-    }
-    setFormData({
-      ...formData,
-      [e.target.name]: value
+  const handleFocus = useCallback((field) => {
+    setFocused((prev) => ({ ...prev, [field]: true }));
+  }, []);
+
+  const formDataRef = useRef(formData);
+  formDataRef.current = formData;
+
+  const handleBlur = useCallback((field) => {
+    setFocused((prev) => {
+      if (formDataRef.current[field]) return prev;
+      if (!prev[field]) return prev;
+      return { ...prev, [field]: false };
     });
-  };
-
-  const handleFocus = (field) => {
-    setFocused({
-      ...focused,
-      [field]: true
-    });
-  };
-
-  const handleBlur = (field) => {
-    if (!formData[field]) {
-      setFocused({
-        ...focused,
-        [field]: false
-      });
-    }
-  };
+  }, []);
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
   const [errors, setErrors] = useState({});
 
-  const validateForm = () => {
+  const clearError = useCallback((field) => {
+    setErrors((prev) => (prev[field] ? { ...prev, [field]: null } : prev));
+  }, []);
+
+  const validateForm = useCallback(() => {
     const newErrors = {};
 
     if (!formData.name.trim()) {
@@ -95,7 +93,7 @@ const Schedule = () => {
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
-  };
+  }, [formData]);
 
   useEffect(() => {
     let timeoutId = null;
@@ -186,17 +184,19 @@ const Schedule = () => {
           <div className="schedule-header">
             <motion.h2 
               className="schedule-headline"
+              layout={false}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.4 }}
             >
               Görüşme Ayarlayın
             </motion.h2>
             <motion.p 
               className="schedule-description"
+              layout={false}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+              transition={{ duration: 0.4, delay: 0.05 }}
             >
               Projenizi konuşmak için bizimle iletişime geçin. Size en kısa sürede dönüş yapacağız.
             </motion.p>
@@ -204,10 +204,11 @@ const Schedule = () => {
 
           <motion.form 
             className="schedule-form"
+            layout={false}
             onSubmit={handleSubmit}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
           >
             <div className="schedule-form-columns">
               <div className="schedule-left-form-column">
@@ -218,10 +219,7 @@ const Schedule = () => {
                     id="name"
                     value={formData.name}
                     onChange={handleChange}
-                    onFocus={() => {
-                      handleFocus('name');
-                      if (errors.name) setErrors({ ...errors, name: null });
-                    }}
+                    onFocus={() => { handleFocus('name'); clearError('name'); }}
                     onBlur={() => handleBlur('name')}
                     className={`schedule-input ${errors.name ? 'error' : ''}`}
                     required
@@ -251,10 +249,7 @@ const Schedule = () => {
                     id="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    onFocus={() => {
-                      handleFocus('phone');
-                      if (errors.phone) setErrors({ ...errors, phone: null });
-                    }}
+                    onFocus={() => { handleFocus('phone'); clearError('phone'); }}
                     onBlur={() => handleBlur('phone')}
                     className={`schedule-input ${errors.phone ? 'error' : ''}`}
                     required
@@ -286,10 +281,7 @@ const Schedule = () => {
                     id="email"
                     value={formData.email}
                     onChange={handleChange}
-                    onFocus={() => {
-                      handleFocus('email');
-                      if (errors.email) setErrors({ ...errors, email: null });
-                    }}
+                    onFocus={() => { handleFocus('email'); clearError('email'); }}
                     onBlur={() => handleBlur('email')}
                     className={`schedule-input ${errors.email ? 'error' : ''}`}
                     required
@@ -339,10 +331,7 @@ const Schedule = () => {
                     id="message"
                     value={formData.message}
                     onChange={handleChange}
-                    onFocus={() => {
-                      handleFocus('message');
-                      if (errors.message) setErrors({ ...errors, message: null });
-                    }}
+                    onFocus={() => { handleFocus('message'); clearError('message'); }}
                     onBlur={() => handleBlur('message')}
                     className={`schedule-input schedule-textarea ${errors.message ? 'error' : ''}`}
                     rows="5"
@@ -396,9 +385,11 @@ const Schedule = () => {
             
             {submitStatus === 'success' && (
               <motion.div
+                layout={false}
                 className="submit-status success"
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
               >
                 Mesajınız başarıyla gönderildi. En kısa sürede size dönüş yapacağız.
               </motion.div>
@@ -406,9 +397,11 @@ const Schedule = () => {
             
             {submitStatus === 'error' && (
               <motion.div
+                layout={false}
                 className="submit-status error"
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
               >
                 Bir hata oluştu. Lütfen tekrar deneyin veya doğrudan info@thebrandnew.agency adresine mail gönderin.
               </motion.div>
