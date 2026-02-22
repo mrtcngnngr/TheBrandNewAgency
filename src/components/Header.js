@@ -10,6 +10,7 @@ const Header = () => {
   const menuRef = useRef(null);
   const mobileMenuRef = useRef(null);
   const isScrolledRef = useRef(false);
+  const clearScrolledTimeoutRef = useRef(null);
   isScrolledRef.current = isScrolled;
 
   useEffect(() => {
@@ -81,30 +82,61 @@ const Header = () => {
     const attach = () => {
       const container = document.querySelector('.project-detail-container');
       if (container) {
+        let clearFalseAt = null;
         const onContainerScroll = throttle(() => {
-          setIsScrolled(container.scrollTop > 10);
+          const top = container.scrollTop;
+          if (top > 10) {
+            if (clearFalseAt) {
+              clearTimeout(clearFalseAt);
+              clearFalseAt = null;
+            }
+            setIsScrolled(true);
+          } else {
+            if (!clearFalseAt) {
+              clearFalseAt = setTimeout(() => {
+                clearFalseAt = null;
+                setIsScrolled(false);
+              }, 220);
+            }
+          }
         }, 50);
         container.addEventListener('scroll', onContainerScroll, { passive: true });
         onContainerScroll();
-        return () => container.removeEventListener('scroll', onContainerScroll);
+        return () => {
+          if (clearFalseAt) clearTimeout(clearFalseAt);
+          container.removeEventListener('scroll', onContainerScroll);
+        };
       }
 
       const sentinel = document.querySelector('[data-scroll-sentinel]');
       if (sentinel) {
         const observer = new IntersectionObserver(
-          ([entry]) => setIsScrolled(!entry.isIntersecting),
+          ([entry]) => {
+            if (!entry.isIntersecting) {
+              if (clearScrolledTimeoutRef.current) {
+                clearTimeout(clearScrolledTimeoutRef.current);
+                clearScrolledTimeoutRef.current = null;
+              }
+              setIsScrolled(true);
+            } else {
+              if (clearScrolledTimeoutRef.current) clearTimeout(clearScrolledTimeoutRef.current);
+              clearScrolledTimeoutRef.current = setTimeout(() => {
+                clearScrolledTimeoutRef.current = null;
+                setIsScrolled(false);
+              }, 220);
+            }
+          },
           { root: null, rootMargin: '0px', threshold: 0 }
         );
         observer.observe(sentinel);
-        updateFromScroll();
-        window.addEventListener('scroll', updateFromScroll, { passive: true });
-        window.addEventListener('resize', updateFromScroll, { passive: true });
-        window.addEventListener('touchmove', updateFromScroll, { passive: true });
+        const scrollY = getScrollTop();
+        if (scrollY > 10) setIsScrolled(true);
         return () => {
+          if (clearScrolledTimeoutRef.current) {
+            clearTimeout(clearScrolledTimeoutRef.current);
+            clearScrolledTimeoutRef.current = null;
+          }
           observer.disconnect();
-          window.removeEventListener('scroll', updateFromScroll);
-          window.removeEventListener('resize', updateFromScroll);
-          window.removeEventListener('touchmove', updateFromScroll);
         };
       }
 
