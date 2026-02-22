@@ -140,7 +140,7 @@ const Works = () => {
   }, []);
 
   return (
-    <section className="works">
+    <section className="works page-first-section">
       <div className="carousel-container" ref={containerRef}>
         <div className="works-preload-imgs" aria-hidden="true">
           {preloadAheadIndices.map((index) => (

@@ -1,14 +1,23 @@
+.header-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 90px;
+  background: rgba(255, 255, 255, 0.06);
+  z-index: 999;
+  pointer-events: none;
+}
+
 .header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   background-color: transparent;
-  z-index: 1000;
+  z-index: 1001;
   padding: 1.25rem 2.5rem;
   transition: none;
-  contain: layout style paint;
-  transform: translateZ(0);
 }
 
 .header.scrolled {

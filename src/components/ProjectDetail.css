@@ -147,6 +147,8 @@ body.page-project-detail .header .mobile-cta-button:hover {
 }
 
 .project-detail-page-1 {
+  position: relative;
+  z-index: 1000;
   background-color: #ffffff;
   display: grid;
   grid-template-columns: 1.2fr 1fr;

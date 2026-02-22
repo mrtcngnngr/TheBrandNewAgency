@@ -7,8 +7,6 @@ const Header = () => {
   const [currentPage, setCurrentPage] = useState('home');
   const menuRef = useRef(null);
   const mobileMenuRef = useRef(null);
-  const headerRef = useRef(null);
-  const lastScrolledRef = useRef(false);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -49,95 +47,6 @@ const Header = () => {
       window.removeEventListener('hashchange', handleHashChange);
     };
   }, []);
-
-  useEffect(() => {
-    const getScrollTop = () => {
-      const se = document.scrollingElement;
-      if (se) return se.scrollTop;
-      return window.pageYOffset ?? document.documentElement.scrollTop ?? document.body.scrollTop ?? 0;
-    };
-
-    const projectDetailSlugs = [
-      'yokote-motors', 'yokote', 'valens-karavan', 'valens-caravan', 'yume-boulangerie',
-      'mithras-mc', 'reverie-night-club', 'joyce', 'joyce-teknoloji', 'joyce-90', 'tozzbike-90',
-      'turmotsan', 'celestial-anatolia', 'beaulife-club', 'allshape', 'allshape-clinic'
-    ];
-    const isProjectPage = projectDetailSlugs.includes(currentPage);
-
-    const attach = () => {
-      let rafScheduled = false;
-      let lastCall = 0;
-      const THROTTLE_MS = 150;
-      const desiredRef = { current: lastScrolledRef.current };
-
-      const flush = () => {
-        rafScheduled = false;
-        const next = desiredRef.current;
-        if (lastScrolledRef.current === next) return;
-        lastScrolledRef.current = next;
-        const el = headerRef.current;
-        if (el) {
-          if (next) el.classList.add('scrolled');
-          else el.classList.remove('scrolled');
-        }
-      };
-
-      const schedule = (next) => {
-        desiredRef.current = next;
-        const now = Date.now();
-        if (now - lastCall < THROTTLE_MS && rafScheduled) return;
-        lastCall = now;
-        if (rafScheduled) return;
-        rafScheduled = true;
-        requestAnimationFrame(flush);
-      };
-
-      const container = document.querySelector('.project-detail-container');
-      if (container) {
-        const onScroll = () => schedule(container.scrollTop > 6);
-        container.addEventListener('scroll', onScroll, { passive: true });
-        onScroll();
-        return () => container.removeEventListener('scroll', onScroll);
-      }
-
-      const sentinel = document.querySelector('[data-scroll-sentinel]');
-      if (sentinel) {
-        const observer = new IntersectionObserver(
-          ([entry]) => schedule(!entry.isIntersecting),
-          { root: null, rootMargin: '-6px 0 0 0', threshold: 0 }
-        );
-        observer.observe(sentinel);
-        schedule(getScrollTop() > 6);
-        return () => observer.disconnect();
-      }
-
-      const onWindowScroll = () => {
-        const y = getScrollTop();
-        if (y > 6) schedule(true);
-        else if (y < 2) schedule(false);
-      };
-      onWindowScroll();
-      window.addEventListener('scroll', onWindowScroll, { passive: true });
-      window.addEventListener('touchmove', onWindowScroll, { passive: true });
-      return () => {
-        window.removeEventListener('scroll', onWindowScroll);
-        window.removeEventListener('touchmove', onWindowScroll);
-      };
-    };
-
-    let cleanup = attach();
-    if (isProjectPage) {
-      const t = setTimeout(() => {
-        if (cleanup) cleanup();
-        cleanup = attach();
-      }, 350);
-      return () => {
-        clearTimeout(t);
-        if (cleanup) cleanup();
-      };
-    }
-    return () => { if (cleanup) cleanup(); };
-  }, [currentPage]);
 
   const handleMenuClick = (page) => {
     setIsMenuOpen(false);
@@ -205,10 +114,9 @@ const Header = () => {
   const logoSrc = isLightBackground ? '/images/TBNA_Logo2.png' : '/images/TBNA_Logo1.png';
 
   return (
-    <header 
-      ref={headerRef}
-      className={`header ${isLightBackground ? 'light-background' : ''}`}
-    >
+    <>
+      <div className="header-bg" aria-hidden="true" />
+      <header className={`header ${isLightBackground ? 'light-background' : ''}`}>
       <div className="header-container">
         <a 
           href="#home" 
@@ -294,6 +202,7 @@ const Header = () => {
         </button>
       </div>
     </header>
+    </>
   );
 };
 

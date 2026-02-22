@@ -25,6 +25,11 @@
   -webkit-tap-highlight-color: transparent;
 }
 
+.page-first-section {
+  position: relative;
+  z-index: 1000;
+}
+
 ::-webkit-scrollbar {
   width: 0;
   height: 0;

@@ -66,7 +66,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="hero" id="home">
+    <section className="hero page-first-section" id="home">
       <div className="hero-video-wrapper" ref={wrapperRef}>
         <video 
           ref={videoRef}
