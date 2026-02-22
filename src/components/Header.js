@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { throttle } from '../utils/performance';
 import './Header.css';
 
 const Header = () => {
@@ -9,8 +8,6 @@ const Header = () => {
   const [currentPage, setCurrentPage] = useState('home');
   const menuRef = useRef(null);
   const mobileMenuRef = useRef(null);
-  const isScrolledRef = useRef(false);
-  isScrolledRef.current = isScrolled;
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -59,18 +56,6 @@ const Header = () => {
       return window.pageYOffset ?? document.documentElement.scrollTop ?? document.body.scrollTop ?? 0;
     };
 
-    const updateFromScroll = throttle(() => {
-      const scrollY = getScrollTop();
-      const docHeight = document.documentElement.scrollHeight;
-      const winHeight = window.innerHeight;
-      const hasScroll = docHeight > winHeight + 10;
-      if (hasScroll && scrollY > 10 && !isScrolledRef.current) {
-        setIsScrolled(true);
-      } else if (scrollY < 5 && isScrolledRef.current) {
-        setIsScrolled(false);
-      }
-    }, 50);
-
     const projectDetailSlugs = [
       'yokote-motors', 'yokote', 'valens-karavan', 'valens-caravan', 'yume-boulangerie',
       'mithras-mc', 'reverie-night-club', 'joyce', 'joyce-teknoloji', 'joyce-90', 'tozzbike-90',
@@ -81,54 +66,24 @@ const Header = () => {
     const attach = () => {
       const container = document.querySelector('.project-detail-container');
       if (container) {
-        let rafId = null;
-        const onContainerScroll = () => {
-          if (rafId) cancelAnimationFrame(rafId);
-          const top = container.scrollTop;
-          rafId = requestAnimationFrame(() => {
-            rafId = null;
-            setIsScrolled(top > 4);
-          });
-        };
-        container.addEventListener('scroll', onContainerScroll, { passive: true });
-        onContainerScroll();
-        return () => {
-          if (rafId) cancelAnimationFrame(rafId);
-          container.removeEventListener('scroll', onContainerScroll);
-        };
+        const onScroll = () => setIsScrolled(container.scrollTop > 6);
+        container.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+        return () => container.removeEventListener('scroll', onScroll);
       }
-
-      const sentinel = document.querySelector('[data-scroll-sentinel]');
-      if (sentinel) {
-        let rafId = null;
-        const observer = new IntersectionObserver(
-          ([entry]) => {
-            if (rafId) cancelAnimationFrame(rafId);
-            const next = !entry.isIntersecting;
-            rafId = requestAnimationFrame(() => {
-              rafId = null;
-              setIsScrolled(next);
-            });
-          },
-          { root: null, rootMargin: '-6px 0 0 0', threshold: 0 }
-        );
-        observer.observe(sentinel);
-        const scrollY = getScrollTop();
-        if (scrollY > 6) setIsScrolled(true);
-        return () => {
-          if (rafId) cancelAnimationFrame(rafId);
-          observer.disconnect();
-        };
-      }
-
-      updateFromScroll();
-      window.addEventListener('scroll', updateFromScroll, { passive: true });
-      window.addEventListener('resize', updateFromScroll, { passive: true });
-      window.addEventListener('touchmove', updateFromScroll, { passive: true });
+      const onWindowScroll = () => {
+        const y = getScrollTop();
+        if (y > 6) setIsScrolled(true);
+        else if (y < 2) setIsScrolled(false);
+      };
+      onWindowScroll();
+      window.addEventListener('scroll', onWindowScroll, { passive: true });
+      window.addEventListener('touchmove', onWindowScroll, { passive: true });
+      window.addEventListener('resize', onWindowScroll, { passive: true });
       return () => {
-        window.removeEventListener('scroll', updateFromScroll);
-        window.removeEventListener('resize', updateFromScroll);
-        window.removeEventListener('touchmove', updateFromScroll);
+        window.removeEventListener('scroll', onWindowScroll);
+        window.removeEventListener('touchmove', onWindowScroll);
+        window.removeEventListener('resize', onWindowScroll);
       };
     };
 
@@ -137,7 +92,7 @@ const Header = () => {
       const t = setTimeout(() => {
         if (cleanup) cleanup();
         cleanup = attach();
-      }, 400);
+      }, 350);
       return () => {
         clearTimeout(t);
         if (cleanup) cleanup();
@@ -210,7 +165,7 @@ const Header = () => {
   const isProjectDetail = projectDetailSlugs.includes(currentPage) || projectDetailSlugs.includes(hash);
   const isLightBackground = currentPage === 'contact' || isProjectDetail;
   const showBlur = isScrolled;
-  const logoSrc = (isLightBackground || showBlur) ? '/images/TBNA_Logo2.png' : '/images/TBNA_Logo1.png';
+  const logoSrc = isLightBackground ? '/images/TBNA_Logo2.png' : '/images/TBNA_Logo1.png';
 
   const headerBlur = showBlur ? 'blur(14px) saturate(100%)' : 'none';
 
