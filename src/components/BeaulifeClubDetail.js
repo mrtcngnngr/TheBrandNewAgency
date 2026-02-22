@@ -7,7 +7,17 @@ const BeaulifeClubDetail = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
-  const servicesPlaceholder = 'Eklenecek.';
+  const description = `Beaulife Club, güzellik ve kişisel bakım alanında geniş hizmet yelpazesi sunan, deneyim odaklı bir beauty & lifestyle markasıdır. Proje kapsamında, markanın dijital dünyadaki tüm iletişiminin bütüncül bir sosyal medya ve pazarlama sistemiyle yapılandırılması hedeflendi.
+
+Beaulife Club için sosyal medya yönetimi; planlı içerik üretimi, düzenli yayın akışı ve etkileşim odaklı bir stratejiyle ele alındı.
+
+Saç, cilt, güzellik ve bakım hizmetleri için ayrı içerik kurguları oluşturularak, her hizmetin doğru hedef kitleyle net biçimde buluşması sağlandı. Reels, post ve story içerikleri; bilgilendiren, güven oluşturan ve randevuya yönlendiren bir anlatı üzerine inşa edildi.
+
+Dijital pazarlama tarafında, kampanya dönemleri ve öne çıkarılmak istenen hizmetler için reklam kurguları geliştirildi. İçerik üretimi ve reklam süreçleri bir arada ele alınarak, görünürlük ve etkileşim artırıldı. Influencer marketing çalışmalarıyla, markanın hedef kitlesiyle örtüşen içerik üreticileri üzerinden güven temelli bir iletişim kuruldu.
+
+Kreatif prodüksiyon ve grafik tasarım süreçlerinde; Beaulife Club’ın premium duruşunu destekleyen görsel bir dil oluşturuldu. Hizmet tanıtımları, kampanya duyuruları ve bilgilendirici içerikler için markaya özel tasarımlar üretildi. Tüm içerikler, sosyal medya kanallarında tutarlı ve ayırt edici bir görünüm sağlayacak şekilde planlandı.
+
+Bu kapsamlı çalışma sayesinde Beaulife Club, sosyal medyada yalnızca kampanya paylaşan bir marka değil; sunduğu hizmetleri doğru anlatan, güven veren ve etkileşim yaratan güçlü bir dijital varlık haline geldi.`;
 
   return (
     <section className="project-detail">
@@ -37,7 +47,7 @@ const BeaulifeClubDetail = () => {
 
           <div className="project-detail-right">
             <div className="project-detail-description-section">
-              <p className="project-detail-description">{servicesPlaceholder}</p>
+              <p className="project-detail-description">{description}</p>
             </div>
 
             <div className="project-detail-meta-section">

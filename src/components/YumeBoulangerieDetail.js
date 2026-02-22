@@ -7,7 +7,11 @@ const YumeBoulangerieDetail = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
-  const servicesPlaceholder = 'Eklenecek.';
+  const description = `Yume Boulangerie için yürüttüğümüz çalışma, markanın el işçiliğine dayalı üretim anlayışını ve ürün kalitesini dijital dünyada doğru bir anlatı ile konumlandırmayı hedefledi. Sürecin başlangıcında, markanın hedef kitlesi, ürün çeşitliliği ve premium konumlandırması analiz edilerek sosyal medya iletişim dili ve içerik stratejisi yeniden yapılandırıldı.
+
+Sosyal medya yönetimi kapsamında; içerik planlama, görsel tasarım, metin kurgusu ve yayın akışı bütüncül bir sistem içerisinde ele alınarak markanın dijital platformlarda tutarlı ve karakter sahibi bir görünüm kazanması sağlandı. Fotoğraf ve video prodüksiyonlarıyla, ürünlerin doğal yapısını ve zanaat odaklı üretim sürecini vurgulayan güçlü görsel içerikler üretildi; bu içerikler markanın sıcak, samimi ve premium kimliğini yansıtan bir görsel dil ile desteklendi.
+
+Dijital pazarlama ve reklam yönetimi süreçlerinde, ürün ve mağaza trafiğini destekleyen kampanya kurguları oluşturularak markanın görünürlüğü ve hedef kitle erişimi artırıldı. Bu bütüncül iletişim yaklaşımı sonucunda Yume Boulangerie, dijital platformlarda ürün kalitesini doğru yansıtan, güçlü ve tutarlı bir marka algısı oluşturarak hedef kitlesiyle daha etkili bir bağ kuran bir yapıya kavuştu.`;
 
   return (
     <section className="project-detail">
@@ -37,7 +41,7 @@ const YumeBoulangerieDetail = () => {
 
           <div className="project-detail-right">
             <div className="project-detail-description-section">
-              <p className="project-detail-description">{servicesPlaceholder}</p>
+              <p className="project-detail-description">{description}</p>
             </div>
 
             <div className="project-detail-meta-section">

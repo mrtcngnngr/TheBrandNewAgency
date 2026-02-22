@@ -76,9 +76,11 @@ Dijital kanallar üzerinden yürütülen iletişim, Valens'in hedef kitlesiyle d
       instagram: null,
       website: null
     },
-    description: `Yume Boulangerie, geleneksel fırıncılık sanatını modern yaklaşımla buluşturan, taze ve doğal ürünler sunan bir fırın markasıdır. Proje kapsamında, markanın el yapımı ürünlerinin ve samimi atmosferinin dijital dünyada doğru ve çekici bir şekilde yansıtılması hedeflendi.
+    description: `Yume Boulangerie için yürüttüğümüz çalışma, markanın el işçiliğine dayalı üretim anlayışını ve ürün kalitesini dijital dünyada doğru bir anlatı ile konumlandırmayı hedefledi. Sürecin başlangıcında, markanın hedef kitlesi, ürün çeşitliliği ve premium konumlandırması analiz edilerek sosyal medya iletişim dili ve içerik stratejisi yeniden yapılandırıldı.
 
-Yume Boulangerie için yürütülen çalışmalarda, markanın günlük hayatın doğal bir parçası olma vizyonu merkeze alındı. Sabah kahvaltılarından akşam atıştırmalıklarına kadar, her an için taze ve lezzetli ürünler sunan bir deneyim yaratıldı.`,
+Sosyal medya yönetimi kapsamında; içerik planlama, görsel tasarım, metin kurgusu ve yayın akışı bütüncül bir sistem içerisinde ele alınarak markanın dijital platformlarda tutarlı ve karakter sahibi bir görünüm kazanması sağlandı. Fotoğraf ve video prodüksiyonlarıyla, ürünlerin doğal yapısını ve zanaat odaklı üretim sürecini vurgulayan güçlü görsel içerikler üretildi; bu içerikler markanın sıcak, samimi ve premium kimliğini yansıtan bir görsel dil ile desteklendi.
+
+Dijital pazarlama ve reklam yönetimi süreçlerinde, ürün ve mağaza trafiğini destekleyen kampanya kurguları oluşturularak markanın görünürlüğü ve hedef kitle erişimi artırıldı. Bu bütüncül iletişim yaklaşımı sonucunda Yume Boulangerie, dijital platformlarda ürün kalitesini doğru yansıtan, güçlü ve tutarlı bir marka algısı oluşturarak hedef kitlesiyle daha etkili bir bağ kuran bir yapıya kavuştu.`,
     image: '/images/yume-boulangerie.jpg'
   },
   {
@@ -92,7 +94,13 @@ Yume Boulangerie için yürütülen çalışmalarda, markanın günlük hayatın
       instagram: null,
       website: null
     },
-    description: `Açıklama eklenecek`,
+    description: `Teknik mühendislik gücünü dijital dünyada doğru ve anlaşılır bir iletişim yapısına dönüştürmek
+
+Mithras Motor Controllers için yürüttüğümüz çalışmada, markanın mühendislik odaklı ürün ve çözümlerini daha anlaşılır ve güçlü bir anlatı ile sunabilmek amacıyla sosyal medya ve web sitesi odaklı bir dijital iletişim yapısı kurgulandı. Sürecin başlangıcında, markanın teknik ürün yapısı, hedef müşteri profili ve sektörel konumlandırması analiz edilerek içerik dili ve dijital iletişim stratejisi oluşturuldu.
+
+Sosyal medya yönetimi kapsamında; teknik içeriklerin sadeleştirilmesi, ürün ve mühendislik süreçlerini anlatan içerik planlamaları, görsel tasarım çalışmaları ve düzenli yayın akışı planlanarak markanın dijital platformlarda daha anlaşılır ve profesyonel bir görünüm kazanması sağlandı.
+
+Web sitesi tarafında ise, markanın ürün ve teknoloji altyapısını doğru şekilde anlatan, kullanıcı deneyimi odaklı ve teknik bilgiyi sade bir yapıyla sunan bir içerik ve tasarım kurgusu oluşturuldu. Bu çalışmalar sonucunda Mithras Motor Controllers, mühendislik gücünü dijital dünyada daha görünür, daha anlaşılır ve daha güçlü bir marka anlatısı ile temsil eden bir yapıya kavuştu.`,
     image: '/images/mithras-mc.jpg'
   },
   {
@@ -121,9 +129,13 @@ Joyce için yürütülen çalışmalarda, markanın modern şehir yaşamına ent
       instagram: null,
       website: null
     },
-    description: `Joyce '90, geçmişin ikonik tasarım ruhunu günümüzün elektrikli mobilite teknolojisiyle buluşturan, karakteri güçlü bir alt markadır. Proje kapsamında, bu özgün konseptin dijital dünyada ayrı bir anlatı ve görsel dil ile konumlandırılması hedeflendi.
+    description: `Joyce ’90, geçmişin ikonik tasarım ruhunu günümüzün elektrikli mobilite teknolojisiyle buluşturan, karakteri güçlü bir alt markadır. Proje kapsamında, bu özgün konseptin dijital dünyada ayrı bir anlatı ve görsel dil ile konumlandırılması hedeflendi.
 
-Joyce '90 için geliştirilen iletişim yaklaşımı, ürünü yalnızca fonksiyonel bir araç olarak değil; stil, ifade ve nostalji taşıyan bir yaşam tarzı nesnesi olarak ele aldı. 90'lar estetiğinden ilham alan görsel dünya, markanın enerjik ve asi karakterini yansıtacak şekilde kurgulandı.`,
+Joyce ’90 için geliştirilen iletişim yaklaşımı, ürünü yalnızca fonksiyonel bir araç olarak değil; stil, ifade ve nostalji taşıyan bir yaşam tarzı nesnesi olarak ele aldı. 90’lar estetiğinden ilham alan görsel dünya, markanın enerjik ve asi karakterini yansıtacak şekilde kurgulandı.
+
+Sosyal medya ve dijital pazarlama sürecinde; lifestyle odaklı içerikler, güçlü görsel anlatımlar ve kampanya dili ön plana çıkarıldı. Fotoğraf ve video prodüksiyonları, ürünün tasarım detaylarını ve duygusal bağ kuran yönünü öne çıkaracak biçimde planlandı. Joyce ’90, Joyce markasının yenilikçi vizyonunu farklı bir estetik perspektifle tamamlayan bir alt marka olarak konumlandırıldı.
+
+Bu iletişim dili sayesinde Joyce ’90, mikromobilite dünyasında yalnızca farklı değil, ayırt edici bir duruş kazandı.`,
     image: '/images/joyce90.jpg'
   },
   {
@@ -170,7 +182,15 @@ Görsel dil oluşturulurken, Kapadokya'nın doğal yapısı ve peri bacalarını
     },
     description: `Beaulife Club, güzellik ve kişisel bakım alanında geniş hizmet yelpazesi sunan, deneyim odaklı bir beauty & lifestyle markasıdır. Proje kapsamında, markanın dijital dünyadaki tüm iletişiminin bütüncül bir sosyal medya ve pazarlama sistemiyle yapılandırılması hedeflendi.
 
-Beaulife Club için sosyal medya yönetimi; planlı içerik üretimi, düzenli yayın akışı ve etkileşim odaklı bir stratejiyle ele alındı.`,
+Beaulife Club için sosyal medya yönetimi; planlı içerik üretimi, düzenli yayın akışı ve etkileşim odaklı bir stratejiyle ele alındı.
+
+Saç, cilt, güzellik ve bakım hizmetleri için ayrı içerik kurguları oluşturularak, her hizmetin doğru hedef kitleyle net biçimde buluşması sağlandı. Reels, post ve story içerikleri; bilgilendiren, güven oluşturan ve randevuya yönlendiren bir anlatı üzerine inşa edildi.
+
+Dijital pazarlama tarafında, kampanya dönemleri ve öne çıkarılmak istenen hizmetler için reklam kurguları geliştirildi. İçerik üretimi ve reklam süreçleri bir arada ele alınarak, görünürlük ve etkileşim artırıldı. Influencer marketing çalışmalarıyla, markanın hedef kitlesiyle örtüşen içerik üreticileri üzerinden güven temelli bir iletişim kuruldu.
+
+Kreatif prodüksiyon ve grafik tasarım süreçlerinde; Beaulife Club’ın premium duruşunu destekleyen görsel bir dil oluşturuldu. Hizmet tanıtımları, kampanya duyuruları ve bilgilendirici içerikler için markaya özel tasarımlar üretildi. Tüm içerikler, sosyal medya kanallarında tutarlı ve ayırt edici bir görünüm sağlayacak şekilde planlandı.
+
+Bu kapsamlı çalışma sayesinde Beaulife Club, sosyal medyada yalnızca kampanya paylaşan bir marka değil; sunduğu hizmetleri doğru anlatan, güven veren ve etkileşim yaratan güçlü bir dijital varlık haline geldi.`,
     image: '/images/beaulife-club.jpg'
   },
   {

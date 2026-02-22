@@ -1503,6 +1503,15 @@ body.page-project-detail .header .mobile-cta-button:hover {
 }
 
 @media (max-width: 1024px) {
+  .project-detail-container {
+    scroll-snap-type: none;
+  }
+
+  .project-detail-page {
+    scroll-snap-align: none;
+    scroll-snap-stop: normal;
+  }
+
   .project-detail-page-1 {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto;
@@ -2145,6 +2154,15 @@ body.page-project-detail .header .mobile-cta-button:hover {
 }
 
 @media (min-width: 1025px) {
+  .project-detail-container {
+    scroll-snap-type: y mandatory;
+  }
+
+  .project-detail-page {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+
   .project-detail-page-1 .project-detail-description {
     font-size: clamp(0.8rem, 0.7rem + 0.35vh, 1rem);
     line-height: 1.6;
@@ -2818,4 +2836,116 @@ body.page-project-detail .header .mobile-cta-button:hover {
 .project-detail-services-list li.highlighted {
   color: #000000;
   font-weight: 500;
+}
+
+@media (max-width: 1024px) {
+  .project-detail {
+    height: 100vh;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+
+  .project-detail-container {
+    height: 100vh;
+    min-height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .project-detail-page {
+    height: auto !important;
+    min-height: auto;
+    overflow: visible;
+  }
+
+  .project-detail-page-1 {
+    height: auto !important;
+    min-height: auto;
+    align-items: start;
+  }
+
+  .project-detail-left,
+  .project-detail-right,
+  .project-detail-image-wrapper,
+  .project-detail-main-image {
+    height: auto !important;
+    max-height: none !important;
+    min-height: 0;
+  }
+
+  .project-detail-right {
+    overflow: visible;
+  }
+
+  .project-detail-description-section {
+    overflow: visible;
+  }
+
+  .project-detail-showcase,
+  .valens-photo-grid,
+  .joyce-page-2-grid,
+  .joyce-teknoloji-page-2-grid,
+  .tozzbike-page-2-grid,
+  .beaulife-grid-layout,
+  .turmotsan-grid-layout,
+  .turmotsan-page-3-grid,
+  .yume-grid-layout,
+  .yume-page-3-grid,
+  .reverie-page-2-grid,
+  .allshape-page-2-layout,
+  .allshape-center-grid,
+  .allshape-grid-6,
+  .valens-devices-showcase,
+  .allshape-devices-showcase,
+  .yokote-page-2-photo,
+  .mithras-page-2-photo,
+  .allshape-page-3-photo,
+  .joyce-page-3-photo {
+    height: auto !important;
+    min-height: 0 !important;
+  }
+
+  .joyce-page-2-grid,
+  .joyce-teknoloji-page-2-grid,
+  .tozzbike-page-2-grid,
+  .beaulife-grid-layout,
+  .turmotsan-grid-layout,
+  .turmotsan-page-3-grid,
+  .yume-grid-layout,
+  .yume-page-3-grid,
+  .reverie-page-2-grid,
+  .allshape-page-2-layout,
+  .allshape-grid-6 {
+    display: grid;
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto !important;
+    gap: 0.9rem !important;
+  }
+
+  .project-detail-page img,
+  .project-detail-main-image,
+  .joyce-page-2-photo img,
+  .joyce-teknoloji-page-2-photo img,
+  .tozzbike-page-2-photo img,
+  .valens-photo-item img,
+  .beaulife-photo-item img,
+  .turmotsan-photo-item img,
+  .turmotsan-page-3-item img,
+  .yume-panel img,
+  .yume-page-3-item img,
+  .reverie-page-2-item img,
+  .allshape-page-2-left img,
+  .allshape-page-2-right img,
+  .allshape-center-grid img,
+  .allshape-panel img,
+  .allshape-page-3-photo img,
+  .valens-devices-image {
+    width: 100%;
+    height: auto !important;
+    object-fit: contain !important;
+    object-position: center;
+    display: block;
+  }
 }

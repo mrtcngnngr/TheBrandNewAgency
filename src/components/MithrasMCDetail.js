@@ -7,7 +7,13 @@ const MithrasMCDetail = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
-  const servicesPlaceholder = 'Eklenecek.';
+  const description = `Teknik mühendislik gücünü dijital dünyada doğru ve anlaşılır bir iletişim yapısına dönüştürmek
+
+Mithras Motor Controllers için yürüttüğümüz çalışmada, markanın mühendislik odaklı ürün ve çözümlerini daha anlaşılır ve güçlü bir anlatı ile sunabilmek amacıyla sosyal medya ve web sitesi odaklı bir dijital iletişim yapısı kurgulandı. Sürecin başlangıcında, markanın teknik ürün yapısı, hedef müşteri profili ve sektörel konumlandırması analiz edilerek içerik dili ve dijital iletişim stratejisi oluşturuldu.
+
+Sosyal medya yönetimi kapsamında; teknik içeriklerin sadeleştirilmesi, ürün ve mühendislik süreçlerini anlatan içerik planlamaları, görsel tasarım çalışmaları ve düzenli yayın akışı planlanarak markanın dijital platformlarda daha anlaşılır ve profesyonel bir görünüm kazanması sağlandı.
+
+Web sitesi tarafında ise, markanın ürün ve teknoloji altyapısını doğru şekilde anlatan, kullanıcı deneyimi odaklı ve teknik bilgiyi sade bir yapıyla sunan bir içerik ve tasarım kurgusu oluşturuldu. Bu çalışmalar sonucunda Mithras Motor Controllers, mühendislik gücünü dijital dünyada daha görünür, daha anlaşılır ve daha güçlü bir marka anlatısı ile temsil eden bir yapıya kavuştu.`;
 
   return (
     <section className="project-detail">
@@ -37,7 +43,7 @@ const MithrasMCDetail = () => {
 
           <div className="project-detail-right">
             <div className="project-detail-description-section">
-              <p className="project-detail-description">{servicesPlaceholder}</p>
+              <p className="project-detail-description">{description}</p>
             </div>
 
             <div className="project-detail-meta-section">

@@ -7,7 +7,13 @@ const TozzBike90Detail = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
-  const servicesPlaceholder = 'Eklenecek.';
+  const description = `Joyce ’90, geçmişin ikonik tasarım ruhunu günümüzün elektrikli mobilite teknolojisiyle buluşturan, karakteri güçlü bir alt markadır. Proje kapsamında, bu özgün konseptin dijital dünyada ayrı bir anlatı ve görsel dil ile konumlandırılması hedeflendi.
+
+Joyce ’90 için geliştirilen iletişim yaklaşımı, ürünü yalnızca fonksiyonel bir araç olarak değil; stil, ifade ve nostalji taşıyan bir yaşam tarzı nesnesi olarak ele aldı. 90’lar estetiğinden ilham alan görsel dünya, markanın enerjik ve asi karakterini yansıtacak şekilde kurgulandı.
+
+Sosyal medya ve dijital pazarlama sürecinde; lifestyle odaklı içerikler, güçlü görsel anlatımlar ve kampanya dili ön plana çıkarıldı. Fotoğraf ve video prodüksiyonları, ürünün tasarım detaylarını ve duygusal bağ kuran yönünü öne çıkaracak biçimde planlandı. Joyce ’90, Joyce markasının yenilikçi vizyonunu farklı bir estetik perspektifle tamamlayan bir alt marka olarak konumlandırıldı.
+
+Bu iletişim dili sayesinde Joyce ’90, mikromobilite dünyasında yalnızca farklı değil, ayırt edici bir duruş kazandı.`;
 
   return (
     <section className="project-detail">
@@ -37,7 +43,7 @@ const TozzBike90Detail = () => {
 
           <div className="project-detail-right">
             <div className="project-detail-description-section">
-              <p className="project-detail-description">{servicesPlaceholder}</p>
+              <p className="project-detail-description">{description}</p>
             </div>
 
             <div className="project-detail-meta-section">
