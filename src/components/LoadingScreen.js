@@ -8,6 +8,8 @@ const LoadingScreen = ({ onComplete }) => {
   const videoRef = useRef(null);
   const wrapperRef = useRef(null);
 
+  const [needPlayGesture, setNeedPlayGesture] = useState(false);
+
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
@@ -18,11 +20,17 @@ const LoadingScreen = ({ onComplete }) => {
     const forcePlay = (retriesLeft = 4) => {
       const p = video.play();
       if (p && typeof p.then === 'function') {
-        p.catch(() => {
-          if (retriesLeft > 0) setTimeout(() => forcePlay(retriesLeft - 1), 400);
+        p.then(() => setNeedPlayGesture(false)).catch(() => {
+          if (retriesLeft > 0) {
+            setTimeout(() => forcePlay(retriesLeft - 1), 400);
+          } else {
+            setNeedPlayGesture(true);
+          }
         });
       }
     };
+
+    const handlePlay = () => setNeedPlayGesture(false);
 
     const handleLoadedMetadata = () => {
       video.setAttribute('poster', '');
@@ -33,12 +41,14 @@ const LoadingScreen = ({ onComplete }) => {
       forcePlay(3);
     };
 
+    video.addEventListener('play', handlePlay);
     video.addEventListener('loadedmetadata', handleLoadedMetadata);
     video.addEventListener('canplay', handleCanPlay);
 
     forcePlay();
 
     return () => {
+      video.removeEventListener('play', handlePlay);
       video.removeEventListener('loadedmetadata', handleLoadedMetadata);
       video.removeEventListener('canplay', handleCanPlay);
     };
@@ -91,6 +101,22 @@ const LoadingScreen = ({ onComplete }) => {
         </video>
         <div className="loading-overlay"></div>
       </div>
+      {needPlayGesture && (
+        <button
+          type="button"
+          className="loading-play-overlay"
+          onClick={() => {
+            const v = videoRef.current;
+            if (v) {
+              v.play();
+              setNeedPlayGesture(false);
+            }
+          }}
+          aria-label="Videoyu oynat"
+        >
+          <span className="loading-play-icon" aria-hidden="true" />
+        </button>
+      )}
       <div className="loading-content">
         <h1 className="loading-title">
           <span className="loading-line-1">Transforming Brands</span>

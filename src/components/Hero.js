@@ -1,9 +1,10 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import './Hero.css';
 
 const Hero = () => {
   const videoRef = useRef(null);
   const wrapperRef = useRef(null);
+  const [needPlayGesture, setNeedPlayGesture] = useState(false);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -15,8 +16,12 @@ const Hero = () => {
     const forcePlay = (retriesLeft = 4) => {
       const p = video.play();
       if (p && typeof p.then === 'function') {
-        p.catch(() => {
-          if (retriesLeft > 0) setTimeout(() => forcePlay(retriesLeft - 1), 400);
+        p.then(() => setNeedPlayGesture(false)).catch(() => {
+          if (retriesLeft > 0) {
+            setTimeout(() => forcePlay(retriesLeft - 1), 400);
+          } else {
+            setNeedPlayGesture(true);
+          }
         });
       }
     };
@@ -25,6 +30,8 @@ const Hero = () => {
       video.pause();
       if (wrapperRef.current) wrapperRef.current.classList.add('video-ended');
     };
+
+    const handlePlay = () => setNeedPlayGesture(false);
 
     const handleLoadedMetadata = () => {
       video.setAttribute('poster', '');
@@ -36,6 +43,7 @@ const Hero = () => {
     };
 
     video.addEventListener('ended', handleVideoEnd);
+    video.addEventListener('play', handlePlay);
     video.addEventListener('loadedmetadata', handleLoadedMetadata);
     video.addEventListener('canplay', handleCanPlay);
 
@@ -43,10 +51,19 @@ const Hero = () => {
 
     return () => {
       video.removeEventListener('ended', handleVideoEnd);
+      video.removeEventListener('play', handlePlay);
       video.removeEventListener('loadedmetadata', handleLoadedMetadata);
       video.removeEventListener('canplay', handleCanPlay);
     };
   }, []);
+
+  const handlePlayClick = () => {
+    const video = videoRef.current;
+    if (video && needPlayGesture) {
+      video.play();
+      setNeedPlayGesture(false);
+    }
+  };
 
   return (
     <section className="hero" id="home">
@@ -66,6 +83,16 @@ const Hero = () => {
         </video>
         <div className="hero-overlay"></div>
       </div>
+      {needPlayGesture && (
+        <button
+          type="button"
+          className="hero-play-overlay"
+          onClick={handlePlayClick}
+          aria-label="Videoyu oynat"
+        >
+          <span className="hero-play-icon" aria-hidden="true" />
+        </button>
+      )}
       <div className="hero-content">
         <h1 className="hero-title">
           <span className="title-line-1">Transforming Brands</span>

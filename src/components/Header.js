@@ -136,11 +136,10 @@ const Header = () => {
   
   const isProjectDetail = projectDetailSlugs.includes(currentPage) || projectDetailSlugs.includes(hash);
   const isLightBackground = currentPage === 'contact' || isProjectDetail;
-  const isWorksPage = currentPage === 'works' || hash === 'works';
   const logoSrc = isLightBackground ? '/images/TBNA_Logo2.png' : '/images/TBNA_Logo1.png';
-  const showBlur = isScrolled && !isWorksPage;
+  const showBlur = isScrolled;
 
-  const projectDetailBlur = isProjectDetail && !isWorksPage;
+  const projectDetailBlur = isProjectDetail;
   const headerBg = projectDetailBlur
     ? 'rgba(255, 255, 255, 0.5)'
     : showBlur

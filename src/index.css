@@ -26,28 +26,14 @@
 }
 
 ::-webkit-scrollbar {
-  width: 12px;
-}
-
-::-webkit-scrollbar-track {
-  background: #18181b;
-  border-left: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.25);
-  border-radius: 6px;
-  border: 2px solid #18181b;
-  transition: background 0.3s ease;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.4);
+  width: 0;
+  height: 0;
+  display: none;
 }
 
 html {
-  scrollbar-width: thin;
-  scrollbar-color: rgba(255, 255, 255, 0.25) #18181b;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 html {
