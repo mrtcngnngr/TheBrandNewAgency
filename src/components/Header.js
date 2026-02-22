@@ -8,6 +8,7 @@ const Header = () => {
   const [currentPage, setCurrentPage] = useState('home');
   const menuRef = useRef(null);
   const mobileMenuRef = useRef(null);
+  const lastScrolledRef = useRef(false);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -66,15 +67,46 @@ const Header = () => {
     const attach = () => {
       const container = document.querySelector('.project-detail-container');
       if (container) {
-        const onScroll = () => setIsScrolled(container.scrollTop > 6);
+        const onScroll = () => {
+          const next = container.scrollTop > 6;
+          if (lastScrolledRef.current !== next) {
+            lastScrolledRef.current = next;
+            setIsScrolled(next);
+          }
+        };
         container.addEventListener('scroll', onScroll, { passive: true });
         onScroll();
         return () => container.removeEventListener('scroll', onScroll);
       }
+
+      const sentinel = document.querySelector('[data-scroll-sentinel]');
+      if (sentinel) {
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            const next = !entry.isIntersecting;
+            if (lastScrolledRef.current !== next) {
+              lastScrolledRef.current = next;
+              setIsScrolled(next);
+            }
+          },
+          { root: null, rootMargin: '-6px 0 0 0', threshold: 0 }
+        );
+        observer.observe(sentinel);
+        const y = getScrollTop();
+        if (y > 6) {
+          lastScrolledRef.current = true;
+          setIsScrolled(true);
+        }
+        return () => observer.disconnect();
+      }
+
       const onWindowScroll = () => {
         const y = getScrollTop();
-        if (y > 6) setIsScrolled(true);
-        else if (y < 2) setIsScrolled(false);
+        const next = y > 6 ? true : y < 2 ? false : lastScrolledRef.current;
+        if (lastScrolledRef.current !== next) {
+          lastScrolledRef.current = next;
+          setIsScrolled(next);
+        }
       };
       onWindowScroll();
       window.addEventListener('scroll', onWindowScroll, { passive: true });
