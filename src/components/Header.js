@@ -4,10 +4,10 @@ import './Header.css';
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const [currentPage, setCurrentPage] = useState('home');
   const menuRef = useRef(null);
   const mobileMenuRef = useRef(null);
+  const headerRef = useRef(null);
   const lastScrolledRef = useRef(false);
 
   useEffect(() => {
@@ -65,15 +65,19 @@ const Header = () => {
     const isProjectPage = projectDetailSlugs.includes(currentPage);
 
     const attach = () => {
+      const apply = (next) => {
+        if (lastScrolledRef.current === next) return;
+        lastScrolledRef.current = next;
+        const el = headerRef.current;
+        if (el) {
+          if (next) el.classList.add('scrolled');
+          else el.classList.remove('scrolled');
+        }
+      };
+
       const container = document.querySelector('.project-detail-container');
       if (container) {
-        const onScroll = () => {
-          const next = container.scrollTop > 6;
-          if (lastScrolledRef.current !== next) {
-            lastScrolledRef.current = next;
-            setIsScrolled(next);
-          }
-        };
+        const onScroll = () => apply(container.scrollTop > 6);
         container.addEventListener('scroll', onScroll, { passive: true });
         onScroll();
         return () => container.removeEventListener('scroll', onScroll);
@@ -82,31 +86,18 @@ const Header = () => {
       const sentinel = document.querySelector('[data-scroll-sentinel]');
       if (sentinel) {
         const observer = new IntersectionObserver(
-          ([entry]) => {
-            const next = !entry.isIntersecting;
-            if (lastScrolledRef.current !== next) {
-              lastScrolledRef.current = next;
-              setIsScrolled(next);
-            }
-          },
+          ([entry]) => apply(!entry.isIntersecting),
           { root: null, rootMargin: '-6px 0 0 0', threshold: 0 }
         );
         observer.observe(sentinel);
-        const y = getScrollTop();
-        if (y > 6) {
-          lastScrolledRef.current = true;
-          setIsScrolled(true);
-        }
+        apply(getScrollTop() > 6);
         return () => observer.disconnect();
       }
 
       const onWindowScroll = () => {
         const y = getScrollTop();
-        const next = y > 6 ? true : y < 2 ? false : lastScrolledRef.current;
-        if (lastScrolledRef.current !== next) {
-          lastScrolledRef.current = next;
-          setIsScrolled(next);
-        }
+        if (y > 6) apply(true);
+        else if (y < 2) apply(false);
       };
       onWindowScroll();
       window.addEventListener('scroll', onWindowScroll, { passive: true });
@@ -196,21 +187,12 @@ const Header = () => {
   
   const isProjectDetail = projectDetailSlugs.includes(currentPage) || projectDetailSlugs.includes(hash);
   const isLightBackground = currentPage === 'contact' || isProjectDetail;
-  const showBlur = isScrolled;
   const logoSrc = isLightBackground ? '/images/TBNA_Logo2.png' : '/images/TBNA_Logo1.png';
-
-  const headerBlur = showBlur ? 'blur(14px) saturate(100%)' : 'none';
 
   return (
     <header 
-      className={`header ${showBlur ? 'scrolled' : ''} ${isLightBackground || showBlur ? 'light-background' : ''}`}
-      style={{
-        backgroundColor: 'transparent',
-        backdropFilter: headerBlur,
-        WebkitBackdropFilter: headerBlur,
-        boxShadow: 'none',
-        transition: 'none'
-      }}
+      ref={headerRef}
+      className={`header ${isLightBackground ? 'light-background' : ''}`}
     >
       <div className="header-container">
         <a 
