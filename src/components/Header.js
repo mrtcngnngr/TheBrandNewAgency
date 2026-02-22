@@ -85,7 +85,7 @@ const Header = () => {
         let clearFalseAt = null;
         const onContainerScroll = throttle(() => {
           const top = container.scrollTop;
-          if (top > 10) {
+          if (top > 4) {
             if (clearFalseAt) {
               clearTimeout(clearFalseAt);
               clearFalseAt = null;
@@ -96,10 +96,10 @@ const Header = () => {
               clearFalseAt = setTimeout(() => {
                 clearFalseAt = null;
                 setIsScrolled(false);
-              }, 220);
+              }, 160);
             }
           }
-        }, 50);
+        }, 40);
         container.addEventListener('scroll', onContainerScroll, { passive: true });
         onContainerScroll();
         return () => {
@@ -123,14 +123,14 @@ const Header = () => {
               clearScrolledTimeoutRef.current = setTimeout(() => {
                 clearScrolledTimeoutRef.current = null;
                 setIsScrolled(false);
-              }, 220);
+              }, 160);
             }
           },
-          { root: null, rootMargin: '0px', threshold: 0 }
+          { root: null, rootMargin: '-6px 0 0 0', threshold: 0 }
         );
         observer.observe(sentinel);
         const scrollY = getScrollTop();
-        if (scrollY > 10) setIsScrolled(true);
+        if (scrollY > 6) setIsScrolled(true);
         return () => {
           if (clearScrolledTimeoutRef.current) {
             clearTimeout(clearScrolledTimeoutRef.current);
@@ -228,26 +228,21 @@ const Header = () => {
   
   const isProjectDetail = projectDetailSlugs.includes(currentPage) || projectDetailSlugs.includes(hash);
   const isLightBackground = currentPage === 'contact' || isProjectDetail;
-  const logoSrc = isLightBackground ? '/images/TBNA_Logo2.png' : '/images/TBNA_Logo1.png';
   const showBlur = isScrolled;
+  const logoSrc = (isLightBackground || showBlur) ? '/images/TBNA_Logo2.png' : '/images/TBNA_Logo1.png';
 
-  const projectDetailBlur = isProjectDetail;
-  const headerBg = projectDetailBlur
-    ? 'rgba(255, 255, 255, 0.5)'
-    : showBlur
-      ? (isLightBackground ? 'rgba(255, 255, 255, 0.6)' : 'rgba(0, 0, 0, 0.5)')
-      : 'transparent';
-  const headerBlur = projectDetailBlur || showBlur ? 'blur(14px) saturate(120%)' : 'none';
+  const headerBg = showBlur ? 'rgba(255, 255, 255, 0.52)' : 'transparent';
+  const headerBlur = showBlur ? 'blur(14px) saturate(120%)' : 'none';
 
   return (
     <header 
-      className={`header ${showBlur ? 'scrolled' : ''} ${isLightBackground ? 'light-background' : ''}`}
+      className={`header ${showBlur ? 'scrolled' : ''} ${isLightBackground || showBlur ? 'light-background' : ''}`}
       style={{
         backgroundColor: headerBg,
         backdropFilter: headerBlur,
         WebkitBackdropFilter: headerBlur,
         boxShadow: 'none',
-        transition: 'background-color 0.3s ease, backdrop-filter 0.3s ease'
+        transition: 'background-color 0.2s ease, backdrop-filter 0.2s ease'
       }}
     >
       <div className="header-container">
