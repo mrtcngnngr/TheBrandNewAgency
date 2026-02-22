@@ -7,6 +7,8 @@
   z-index: 1000;
   padding: 1.25rem 2.5rem;
   transition: none;
+  contain: layout style paint;
+  transform: translateZ(0);
 }
 
 .header.scrolled {

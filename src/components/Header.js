@@ -65,7 +65,14 @@ const Header = () => {
     const isProjectPage = projectDetailSlugs.includes(currentPage);
 
     const attach = () => {
-      const apply = (next) => {
+      let rafScheduled = false;
+      let lastCall = 0;
+      const THROTTLE_MS = 150;
+      const desiredRef = { current: lastScrolledRef.current };
+
+      const flush = () => {
+        rafScheduled = false;
+        const next = desiredRef.current;
         if (lastScrolledRef.current === next) return;
         lastScrolledRef.current = next;
         const el = headerRef.current;
@@ -75,9 +82,19 @@ const Header = () => {
         }
       };
 
+      const schedule = (next) => {
+        desiredRef.current = next;
+        const now = Date.now();
+        if (now - lastCall < THROTTLE_MS && rafScheduled) return;
+        lastCall = now;
+        if (rafScheduled) return;
+        rafScheduled = true;
+        requestAnimationFrame(flush);
+      };
+
       const container = document.querySelector('.project-detail-container');
       if (container) {
-        const onScroll = () => apply(container.scrollTop > 6);
+        const onScroll = () => schedule(container.scrollTop > 6);
         container.addEventListener('scroll', onScroll, { passive: true });
         onScroll();
         return () => container.removeEventListener('scroll', onScroll);
@@ -86,27 +103,25 @@ const Header = () => {
       const sentinel = document.querySelector('[data-scroll-sentinel]');
       if (sentinel) {
         const observer = new IntersectionObserver(
-          ([entry]) => apply(!entry.isIntersecting),
+          ([entry]) => schedule(!entry.isIntersecting),
           { root: null, rootMargin: '-6px 0 0 0', threshold: 0 }
         );
         observer.observe(sentinel);
-        apply(getScrollTop() > 6);
+        schedule(getScrollTop() > 6);
         return () => observer.disconnect();
       }
 
       const onWindowScroll = () => {
         const y = getScrollTop();
-        if (y > 6) apply(true);
-        else if (y < 2) apply(false);
+        if (y > 6) schedule(true);
+        else if (y < 2) schedule(false);
       };
       onWindowScroll();
       window.addEventListener('scroll', onWindowScroll, { passive: true });
       window.addEventListener('touchmove', onWindowScroll, { passive: true });
-      window.addEventListener('resize', onWindowScroll, { passive: true });
       return () => {
         window.removeEventListener('scroll', onWindowScroll);
         window.removeEventListener('touchmove', onWindowScroll);
-        window.removeEventListener('resize', onWindowScroll);
       };
     };
 
