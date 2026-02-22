@@ -94,7 +94,7 @@ Bu çalışmalar, Joyce'un dijital dünyada yalnızca bir araç üreticisi deği
                 </div>
               </div>
             </div>
-            <div className="beaulife-photo-item">
+            <div className="beaulife-photo-item joyce-page-2-center-item">
               <img src="/images/Joyce/Joyce6.jpg" alt="Joyce" />
             </div>
             <div className="beaulife-photo-item">

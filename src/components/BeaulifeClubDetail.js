@@ -80,7 +80,7 @@ Bu kapsamlı çalışma sayesinde Beaulife Club, sosyal medyada yalnızca kampan
               <img src="/images/BeaulifeClub/BeaulifeClub2.jpg" alt="Beaulife Club" />
             </div>
 
-            <div className="beaulife-photo-item beaulife-photo-center">
+            <div className="beaulife-photo-item beaulife-photo-center beaulife-club-center-item">
               <img src="/images/BeaulifeClub/BeaulifeClub3.jpg" alt="Beaulife Club" />
             </div>
 

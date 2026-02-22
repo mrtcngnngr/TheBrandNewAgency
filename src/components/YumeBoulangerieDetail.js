@@ -73,7 +73,7 @@ Dijital pazarlama ve reklam yönetimi süreçlerinde, ürün ve mağaza trafiği
             <div className="yume-panel">
               <img src="/images/YumeBoulangerie/YumeBoulangerie2.jpg" alt="Yume Boulangerie" />
             </div>
-            <div className="yume-panel yume-panel-center">
+            <div className="yume-panel yume-panel-center yume-panel-center-portrait">
               <img src="/images/YumeBoulangerie/YumeBoulangerie3.jpg" alt="Yume Boulangerie" />
             </div>
             <div className="yume-panel">

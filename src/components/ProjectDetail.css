@@ -923,6 +923,11 @@ body.page-project-detail .header .mobile-cta-button:hover {
   object-position: center;
 }
 
+.beaulife-photo-item.joyce-page-2-center-item img {
+  object-fit: contain;
+  object-position: center;
+}
+
 .joyce-teknoloji-page-2 {
   background-color: #ffffff;
   padding: clamp(90px, 12vw, 130px) clamp(1rem, 2vw, 2rem) clamp(1rem, 2vw, 2rem);
@@ -1157,6 +1162,11 @@ body.page-project-detail .header .mobile-cta-button:hover {
   object-position: center;
 }
 
+.beaulife-photo-item.beaulife-club-center-item img {
+  object-fit: contain;
+  object-position: center;
+}
+
 .turmotsan-page-1 {
   grid-template-columns: 1.2fr 1fr;
   padding-bottom: clamp(2rem, 4vw, 4rem);
@@ -1233,6 +1243,11 @@ body.page-project-detail .header .mobile-cta-button:hover {
   object-fit: cover;
   object-position: center;
   display: block;
+}
+
+.turmotsan-photo-item.turmotsan-photo-item-center img {
+  object-fit: contain;
+  object-position: center;
 }
 
 .turmotsan-page-3 {
@@ -1392,6 +1407,11 @@ body.page-project-detail .header .mobile-cta-button:hover {
 }
 
 .yume-panel-center img {
+  object-fit: contain;
+  object-position: center;
+}
+
+.yume-panel.yume-panel-center-portrait img {
   object-fit: contain;
   object-position: center;
 }
@@ -2852,18 +2872,51 @@ body.page-project-detail .header .mobile-cta-button:hover {
     overflow-y: auto;
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
+    padding-bottom: 1rem;
   }
 
   .project-detail-page {
     height: auto !important;
     min-height: auto;
     overflow: visible;
+    margin: 0 !important;
+  }
+
+  .project-detail-page + .project-detail-page {
+    margin-top: 0.75rem !important;
   }
 
   .project-detail-page-1 {
     height: auto !important;
     min-height: auto;
     align-items: start;
+  }
+
+  .project-detail-page-2,
+  .project-detail-page-3,
+  .project-detail-page-4,
+  .project-detail-page-5,
+  .valens-page-2,
+  .valens-page-3,
+  .joyce-page-2,
+  .joyce-page-3,
+  .joyce-page-4,
+  .joyce-teknoloji-page-2,
+  .tozzbike-page-2,
+  .beaulife-page-2,
+  .turmotsan-page-2,
+  .turmotsan-page-3,
+  .yume-page-2,
+  .yume-page-3,
+  .allshape-page-2,
+  .allshape-page-3,
+  .allshape-page-4,
+  .allshape-page-5,
+  .reverie-page-2,
+  .yokote-page-2,
+  .mithras-page-2 {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
   }
 
   .project-detail-left,
@@ -2917,11 +2970,64 @@ body.page-project-detail .header .mobile-cta-button:hover {
   .yume-page-3-grid,
   .reverie-page-2-grid,
   .allshape-page-2-layout,
+  .allshape-center-grid,
   .allshape-grid-6 {
     display: grid;
     grid-template-columns: 1fr !important;
     grid-template-rows: auto !important;
     gap: 0.9rem !important;
+  }
+
+  .valens-photo-grid,
+  .valens-grid-left,
+  .valens-grid-right,
+  .valens-grid-top {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.9rem !important;
+    height: auto !important;
+  }
+
+  .tozzbike-page-2-grid {
+    grid-template-areas: none !important;
+  }
+
+  .beaulife-grid-layout {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.9rem !important;
+    height: auto !important;
+  }
+
+  .joyce-page-2-left,
+  .joyce-teknoloji-page-2-left {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.9rem !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .joyce-page-2-top,
+  .joyce-page-2-bottom,
+  .joyce-teknoloji-page-2-top,
+  .joyce-teknoloji-page-2-bottom,
+  .beaulife-photo-item {
+    width: 100% !important;
+    height: auto !important;
+    flex: none !important;
+  }
+
+  .tozzbike-hero,
+  .tozzbike-logo,
+  .tozzbike-rider,
+  .tozzbike-tire {
+    grid-area: auto !important;
+  }
+
+  .allshape-center-grid {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto !important;
   }
 
   .project-detail-page img,
@@ -2947,5 +3053,28 @@ body.page-project-detail .header .mobile-cta-button:hover {
     object-fit: contain !important;
     object-position: center;
     display: block;
+  }
+
+  .joyce-page-2,
+  .beaulife-page-2,
+  .turmotsan-page-2,
+  .turmotsan-page-3,
+  .yume-page-2,
+  .yume-page-3 {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+
+  .joyce-page-2-grid,
+  .beaulife-grid-layout,
+  .turmotsan-grid-layout,
+  .turmotsan-page-3-grid,
+  .yume-grid-layout,
+  .yume-page-3-grid {
+    width: 100% !important;
+    margin: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    box-sizing: border-box;
   }
 }

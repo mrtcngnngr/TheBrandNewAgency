@@ -86,7 +86,7 @@ Ortaya çıkan bütüncül yapı sayesinde Turmotsan Motors, dijital dünyada ya
             <div className="turmotsan-photo-item">
               <img src="/images/Turmotsan/Turmotsan2.jpg" alt="Turmotsan" />
             </div>
-            <div className="turmotsan-photo-item">
+            <div className="turmotsan-photo-item turmotsan-photo-item-center">
               <img src="/images/Turmotsan/Turmotsan3.jpg" alt="Turmotsan" />
             </div>
             <div className="turmotsan-photo-item">
