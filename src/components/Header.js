@@ -96,7 +96,7 @@ const Header = () => {
               clearFalseAt = setTimeout(() => {
                 clearFalseAt = null;
                 setIsScrolled(false);
-              }, 160);
+              }, 80);
             }
           }
         }, 40);
@@ -123,7 +123,7 @@ const Header = () => {
               clearScrolledTimeoutRef.current = setTimeout(() => {
                 clearScrolledTimeoutRef.current = null;
                 setIsScrolled(false);
-              }, 160);
+              }, 80);
             }
           },
           { root: null, rootMargin: '-6px 0 0 0', threshold: 0 }
@@ -231,7 +231,7 @@ const Header = () => {
   const showBlur = isScrolled;
   const logoSrc = (isLightBackground || showBlur) ? '/images/TBNA_Logo2.png' : '/images/TBNA_Logo1.png';
 
-  const headerBg = showBlur ? 'rgba(255, 255, 255, 0.52)' : 'transparent';
+  const headerBg = showBlur ? 'rgba(255, 255, 255, 0.35)' : 'transparent';
   const headerBlur = showBlur ? 'blur(14px) saturate(120%)' : 'none';
 
   return (
@@ -242,7 +242,7 @@ const Header = () => {
         backdropFilter: headerBlur,
         WebkitBackdropFilter: headerBlur,
         boxShadow: 'none',
-        transition: 'background-color 0.2s ease, backdrop-filter 0.2s ease'
+        transition: 'background-color 0.1s ease-out, backdrop-filter 0.1s ease-out'
       }}
     >
       <div className="header-container">
