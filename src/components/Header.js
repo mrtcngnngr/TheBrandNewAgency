@@ -53,8 +53,14 @@ const Header = () => {
   }, []);
 
   useEffect(() => {
-    const updateScrollState = throttle(() => {
-      const scrollY = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    const getScrollTop = () => {
+      const se = document.scrollingElement;
+      if (se) return se.scrollTop;
+      return window.pageYOffset ?? document.documentElement.scrollTop ?? document.body.scrollTop ?? 0;
+    };
+
+    const updateFromScroll = throttle(() => {
+      const scrollY = getScrollTop();
       const docHeight = document.documentElement.scrollHeight;
       const winHeight = window.innerHeight;
       const hasScroll = docHeight > winHeight + 10;
@@ -63,15 +69,69 @@ const Header = () => {
       } else if (scrollY < 5 && isScrolledRef.current) {
         setIsScrolled(false);
       }
-    }, 80);
-    updateScrollState();
-    window.addEventListener('scroll', updateScrollState, { passive: true });
-    window.addEventListener('resize', updateScrollState, { passive: true });
-    return () => {
-      window.removeEventListener('scroll', updateScrollState);
-      window.removeEventListener('resize', updateScrollState);
+    }, 50);
+
+    const projectDetailSlugs = [
+      'yokote-motors', 'yokote', 'valens-karavan', 'valens-caravan', 'yume-boulangerie',
+      'mithras-mc', 'reverie-night-club', 'joyce', 'joyce-teknoloji', 'joyce-90', 'tozzbike-90',
+      'turmotsan', 'celestial-anatolia', 'beaulife-club', 'allshape', 'allshape-clinic'
+    ];
+    const isProjectPage = projectDetailSlugs.includes(currentPage);
+
+    const attach = () => {
+      const container = document.querySelector('.project-detail-container');
+      if (container) {
+        const onContainerScroll = throttle(() => {
+          setIsScrolled(container.scrollTop > 10);
+        }, 50);
+        container.addEventListener('scroll', onContainerScroll, { passive: true });
+        onContainerScroll();
+        return () => container.removeEventListener('scroll', onContainerScroll);
+      }
+
+      const sentinel = document.querySelector('[data-scroll-sentinel]');
+      if (sentinel) {
+        const observer = new IntersectionObserver(
+          ([entry]) => setIsScrolled(!entry.isIntersecting),
+          { root: null, rootMargin: '0px', threshold: 0 }
+        );
+        observer.observe(sentinel);
+        updateFromScroll();
+        window.addEventListener('scroll', updateFromScroll, { passive: true });
+        window.addEventListener('resize', updateFromScroll, { passive: true });
+        window.addEventListener('touchmove', updateFromScroll, { passive: true });
+        return () => {
+          observer.disconnect();
+          window.removeEventListener('scroll', updateFromScroll);
+          window.removeEventListener('resize', updateFromScroll);
+          window.removeEventListener('touchmove', updateFromScroll);
+        };
+      }
+
+      updateFromScroll();
+      window.addEventListener('scroll', updateFromScroll, { passive: true });
+      window.addEventListener('resize', updateFromScroll, { passive: true });
+      window.addEventListener('touchmove', updateFromScroll, { passive: true });
+      return () => {
+        window.removeEventListener('scroll', updateFromScroll);
+        window.removeEventListener('resize', updateFromScroll);
+        window.removeEventListener('touchmove', updateFromScroll);
+      };
     };
-  }, []);
+
+    let cleanup = attach();
+    if (isProjectPage) {
+      const t = setTimeout(() => {
+        if (cleanup) cleanup();
+        cleanup = attach();
+      }, 400);
+      return () => {
+        clearTimeout(t);
+        if (cleanup) cleanup();
+      };
+    }
+    return () => { if (cleanup) cleanup(); };
+  }, [currentPage]);
 
   const handleMenuClick = (page) => {
     setIsMenuOpen(false);
