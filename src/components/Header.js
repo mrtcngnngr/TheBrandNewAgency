@@ -1,6 +1,20 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './Header.css';
 
+const isMobile = () => /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+const openSocialLink = (appUrl, webUrl) => (e) => {
+  e.preventDefault();
+  if (isMobile()) {
+    window.location.href = appUrl;
+    setTimeout(() => {
+      if (!document.hidden) window.open(webUrl, '_blank', 'noopener,noreferrer');
+    }, 1500);
+  } else {
+    window.open(webUrl, '_blank', 'noopener,noreferrer');
+  }
+};
+
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -38,7 +52,7 @@ const Header = () => {
     if (sentinel) {
       const obs = new IntersectionObserver(
         ([e]) => schedule(!e.isIntersecting),
-        { root: null, rootMargin: '-20px 0 0 0', threshold: 0 }
+        { root: null, rootMargin: '-20px 0px 0px 0px', threshold: 0 }
       );
       obs.observe(sentinel);
       setVisible((window.pageYOffset || document.documentElement.scrollTop) > 20);
@@ -108,15 +122,15 @@ const Header = () => {
       </a>
       <div className="dropdown-divider"></div>
       <div className="social-links-container">
-        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Instagram hesabımızı ziyaret edin">
+        <a href="https://www.instagram.com/thebrandnew.agency" onClick={openSocialLink('instagram://user?username=thebrandnew.agency', 'https://www.instagram.com/thebrandnew.agency')} target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Instagram hesabımızı ziyaret edin">
           <span>Instagram</span>
           <span className="social-arrow" aria-hidden="true">↗</span>
         </a>
-        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="LinkedIn sayfamızı ziyaret edin">
+        <a href="https://www.linkedin.com/company/the-brand-new-agncy" onClick={openSocialLink('linkedin://company/the-brand-new-agncy', 'https://www.linkedin.com/company/the-brand-new-agncy/?viewAsMember=true')} target="_blank" rel="noopener noreferrer" className="social-link" aria-label="LinkedIn sayfamızı ziyaret edin">
           <span>LinkedIn</span>
           <span className="social-arrow" aria-hidden="true">↗</span>
         </a>
-        <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="TikTok hesabımızı ziyaret edin">
+        <a href="https://www.tiktok.com/@thebrandnew.agency" onClick={openSocialLink('tiktok://user?username=thebrandnew.agency', 'https://www.tiktok.com/@thebrandnew.agency')} target="_blank" rel="noopener noreferrer" className="social-link" aria-label="TikTok hesabımızı ziyaret edin">
           <span>TikTok</span>
           <span className="social-arrow" aria-hidden="true">↗</span>
         </a>
