@@ -1,6 +1,15 @@
 import React, { useState, useRef, memo, useEffect, useCallback, useMemo, startTransition, useDeferredValue } from 'react';
 import './Works.css';
 
+const slugifyProjectTitle = (title) =>
+  title
+    .toLowerCase()
+    .replace(/\s+/g, '-')
+    .replace(/'/g, '')
+    .replace(/\./g, '')
+    .replace(/&/g, '')
+    .replace(/-+/g, '-');
+
 const projects = [
   {
     id: 1,
@@ -85,6 +94,8 @@ const Works = () => {
   const [current, setCurrent] = useState(0);
   const deferredCurrent = useDeferredValue(current);
   const containerRef = useRef(null);
+  const activeProject = projects[deferredCurrent] || projects[0];
+  const activeSlug = slugifyProjectTitle(activeProject.title);
 
   const runTransition = useCallback((fn) => {
     requestAnimationFrame(() => {
@@ -187,6 +198,21 @@ const Works = () => {
               />
             </svg>
           </button>
+
+          <div className="carousel-mobile-heading" aria-hidden="true">
+            <div className="carousel-mobile-title">{activeProject.title}</div>
+            <a
+              href={`#${activeSlug}`}
+              className="carousel-mobile-detail"
+              onClick={(e) => {
+                e.preventDefault();
+                window.location.hash = `#${activeSlug}`;
+              }}
+              aria-label={`${activeProject.title} proje detaylarına git`}
+            >
+              Detaylı Bilgi
+            </a>
+          </div>
           
           <button 
             className="carousel-control-btn carousel-next"
@@ -243,7 +269,7 @@ const Slide = memo(({ slide, index, current, total, handleSlideClick }) => {
     }
   }, [isPreview, isPreload]);
 
-  const projectSlug = slide.title.toLowerCase().replace(/\s+/g, '-').replace(/'/g, '').replace(/\./g, '').replace(/&/g, '').replace(/-+/g, '-');
+  const projectSlug = slugifyProjectTitle(slide.title);
 
   return (
     <div

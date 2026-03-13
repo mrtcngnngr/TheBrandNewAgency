@@ -25,6 +25,17 @@
   -webkit-tap-highlight-color: transparent;
 }
 
+img,
+picture,
+video,
+canvas {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+}
+
 .page-first-section {
   position: relative;
   z-index: 1000;
