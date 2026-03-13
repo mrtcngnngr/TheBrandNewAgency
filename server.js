@@ -4,7 +4,6 @@ require('dotenv').config({ path: '.env.local', override: true });
 
 const express = require('express');
 const cors = require('cors');
-const nodemailer = require('nodemailer');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -12,24 +11,16 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-const EMAIL_USER = process.env.EMAIL_USER || 'tbnwebsitemail@gmail.com';
-const EMAIL_PASS = process.env.EMAIL_PASS;
+const BREVO_API_KEY = process.env.BREVO_API_KEY;
+const EMAIL_FROM = process.env.EMAIL_FROM || 'tbnwebsitemail@gmail.com';
 const EMAIL_TO = process.env.EMAIL_TO || 'mrtcngnngr@gmail.com';
 
-if (!EMAIL_PASS) {
+if (!BREVO_API_KEY) {
   // eslint-disable-next-line no-console
   console.warn(
-    '[server] EMAIL_PASS environment variable is not set. Email sending will fail until it is configured.'
+    '[server] BREVO_API_KEY environment variable is not set. Email sending will fail until it is configured.'
   );
 }
-
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: EMAIL_USER,
-    pass: EMAIL_PASS,
-  },
-});
 
 const buildScheduleHtml = (data) => {
   const { name, email, phone, company, message } = data;
@@ -134,13 +125,30 @@ app.post('/api/schedule', async (req, res) => {
   }
 
   try {
-    await transporter.sendMail({
-      from: `"THE BRAND NEW Website" <${EMAIL_USER}>`,
-      to: EMAIL_TO,
-      replyTo: email,
-      subject: `Yeni Görüşme Talebi – ${name}`,
-      html: buildScheduleHtml({ name, email, phone, company, message }),
+    const brevoRes = await fetch('https://api.brevo.com/v3/smtp/email', {
+      method: 'POST',
+      headers: {
+        'api-key': BREVO_API_KEY || '',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        sender: {
+          name: 'THE BRAND NEW Website',
+          email: EMAIL_FROM,
+        },
+        to: [{ email: EMAIL_TO }],
+        replyTo: { email },
+        subject: `Yeni Görüşme Talebi – ${name}`,
+        htmlContent: buildScheduleHtml({ name, email, phone, company, message }),
+      }),
     });
+
+    if (!brevoRes.ok) {
+      const errBody = await brevoRes.text();
+      // eslint-disable-next-line no-console
+      console.error('Brevo API error:', brevoRes.status, errBody);
+      return res.status(500).json({ ok: false, error: 'Email send failed' });
+    }
 
     return res.json({ ok: true });
   } catch (err) {

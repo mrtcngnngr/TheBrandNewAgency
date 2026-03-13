@@ -139,18 +139,35 @@ const Schedule = () => {
         message: sanitizeInput(formData.message),
       };
 
-      const API_BASE =
-        process.env.NODE_ENV === 'production'
-          ? 'https://thebrandnewagencywebmail.onrender.com'
-          : '';
+      const WEB3_KEY = process.env.REACT_APP_WEB3FORMS_KEY || 'YOUR_WEB3FORMS_KEY';
 
-      const response = await fetch(`${API_BASE}/api/schedule`, {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 60000);
+
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(sanitizedData),
+        headers: { 
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: WEB3_KEY,
+          from_name: 'THE BRAND NEW Website',
+          subject: `Yeni Görüşme Talebi – ${sanitizedData.name}`,
+          name: sanitizedData.name,
+          email: sanitizedData.email,
+          phone: sanitizedData.phone,
+          company: sanitizedData.company || 'Belirtilmemiş',
+          message: sanitizedData.message,
+        }),
+        signal: controller.signal,
       });
 
-      if (!response.ok) {
+      clearTimeout(timeoutId);
+
+      const result = await response.json().catch(() => null);
+
+      if (!response.ok || !result || result.success !== true) {
         throw new Error('Email send failed');
       }
       
