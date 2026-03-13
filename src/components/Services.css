@@ -171,7 +171,7 @@
   .services-container {
     flex-direction: column;
     gap: 4rem;
-    padding: 10rem 2.5rem 4rem 2.5rem;
+    padding: 12rem 2.5rem 4rem 2.5rem;
     align-items: flex-start;
   }
 
@@ -199,7 +199,7 @@
 
   .services-container {
     flex-direction: column;
-    padding: 8rem 1.5rem 4rem 1.5rem;
+    padding: 10rem 1.5rem 4rem 1.5rem;
     gap: 4rem;
     align-items: flex-start;
     justify-content: flex-start;
@@ -263,7 +263,7 @@
   }
 
   .services-container {
-    padding: 7rem 1.25rem 4rem 1.25rem;
+    padding: 9rem 1.25rem 4rem 1.25rem;
     gap: 3.5rem;
   }
 
@@ -303,7 +303,7 @@
 
 @media (max-width: 430px) {
   .services-container {
-    padding: 6.5rem 1.15rem 3.75rem 1.15rem;
+    padding: 8.5rem 1.15rem 3.75rem 1.15rem;
     gap: 3.25rem;
   }
 
@@ -328,7 +328,7 @@
 
 @media (max-width: 414px) {
   .services-container {
-    padding: 6.25rem 1.1rem 3.6rem 1.1rem;
+    padding: 8.25rem 1.1rem 3.6rem 1.1rem;
     gap: 3.1rem;
   }
 
@@ -353,7 +353,7 @@
 
 @media (max-width: 375px) {
   .services-container {
-    padding: 6rem 1rem 3.5rem 1rem;
+    padding: 8rem 1rem 3.5rem 1rem;
     gap: 3rem;
   }
 
@@ -378,7 +378,7 @@
 
 @media (max-width: 360px) {
   .services-container {
-    padding: 5.75rem 0.9rem 3.25rem 0.9rem;
+    padding: 7.75rem 0.9rem 3.25rem 0.9rem;
     gap: 2.75rem;
   }
 
@@ -403,7 +403,7 @@
 
 @media (max-width: 320px) {
   .services-container {
-    padding: 5.5rem 0.75rem 3rem 0.75rem;
+    padding: 7.5rem 0.75rem 3rem 0.75rem;
     gap: 2.5rem;
   }
 
