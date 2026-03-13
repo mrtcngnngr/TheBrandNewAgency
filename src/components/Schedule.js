@@ -139,11 +139,14 @@ const Schedule = () => {
         message: sanitizeInput(formData.message),
       };
 
-      const response = await fetch('/api/schedule', {
+      const API_BASE =
+        process.env.NODE_ENV === 'production'
+          ? 'https://thebrandnewagencywebmail.onrender.com'
+          : '';
+
+      const response = await fetch(`${API_BASE}/api/schedule`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(sanitizedData),
       });
 
