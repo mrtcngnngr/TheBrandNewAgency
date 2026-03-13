@@ -139,17 +139,17 @@ const Schedule = () => {
         message: sanitizeInput(formData.message),
       };
 
-      const emailData = {
-        to: 'info@thebrandnew.agency',
-        from: sanitizedData.email,
-        subject: `Yeni İletişim Formu - ${sanitizedData.name}`,
-        name: sanitizedData.name,
-        phone: sanitizedData.phone,
-        company: sanitizedData.company || 'Belirtilmemiş',
-        message: sanitizedData.message,
-      };
+      const response = await fetch('/api/schedule', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(sanitizedData),
+      });
 
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      if (!response.ok) {
+        throw new Error('Email send failed');
+      }
       
       setSubmitStatus('success');
       
