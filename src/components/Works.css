@@ -823,16 +823,21 @@
 
 @media (min-width: 1025px) {
   .carousel-container {
-    gap: 12px;
-    padding: 20px 0 20px 20px;
+    gap: 0;
+    padding: 20px;
   }
 
   .carousel-slide {
-    width: calc(80% - 6px);
+    width: 100%;
+    left: 0 !important;
+    right: auto !important;
   }
 
-  .carousel-slide.preview {
-    width: calc(20% - 6px);
+  /* Desktop: tek proje göster, sağ preview kapalı */
+  .carousel-slide.preview,
+  .carousel-slide.preload,
+  .carousel-slide.prev {
+    display: none !important;
   }
 
   .slide-content {
