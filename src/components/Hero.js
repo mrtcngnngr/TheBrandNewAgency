@@ -95,8 +95,8 @@ const Hero = () => {
       )}
       <div className="hero-content">
         <h1 className="hero-title">
-          <span className="title-line-1">Transforming Brands</span>
-          <span className="title-line-2">On All Fronts.</span>
+          <span className="title-line-1">Your Brand Impossible</span>
+          <span className="title-line-2">To Ignore.</span>
         </h1>
       </div>
     </section>

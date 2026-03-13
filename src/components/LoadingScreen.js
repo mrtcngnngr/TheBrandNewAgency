@@ -119,8 +119,8 @@ const LoadingScreen = ({ onComplete }) => {
       )}
       <div className="loading-content">
         <h1 className="loading-title">
-          <span className="loading-line-1">Transforming Brands</span>
-          <span className="loading-line-2">On All Fronts.</span>
+          <span className="loading-line-1">Your Brand Impossible</span>
+          <span className="loading-line-2">To Ignore.</span>
         </h1>
         <div className="loading-progress-container">
           <div 
